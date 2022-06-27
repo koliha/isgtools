@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# create variables for macid and modem ip from $QUERY_STRING
+cmmac=$( echo $QUERY_STRING | cut -c 7-18 | tr -d [:space:] )
+cmip=$( echo $QUERY_STRING | cut -c 24-50 | tr -d [:space:] )
+date=$(date)
+echo "Content-type: text/plain"
+echo ""
+echo "$cmmac log [$date]:"
+echo ""
+# run docsdiag.jar to pull the modem logfile
+$javapath/java -jar $docsdiagpath/docsdiag.jar -log -cmmac $cmmac -cmip $cmip | grep -v "DocsDiag" | grep -v "Verifying host" | grep -v "MAC address verified"

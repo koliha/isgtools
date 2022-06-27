@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+echo "Content-type: text/plain"
+echo ""
+# determine month, day, hour, and ip to search for
+echo $QUERY_STRING > qs.$QUERY_STRING
+( echo w ; echo quit ) | /bin/ex -c :1s/"=Search"/ qs.$QUERY_STRING
+cat qs.$QUERY_STRING | tr -d \& > qs.$QUERY_STRING
+month=$(cat qs.$QUERY_STRING | cut -c 7-8 | tr -d [:space:] )
+day=$(cat qs.$QUERY_STRING | cut -c 13-14 | tr -d [:space:] )
+hour=$(cat qs.$QUERY_STRING | cut -c 20-21 | tr -d [:space:] )
+ip=$(cat qs.$QUERY_STRING | cut -c 25-50 | tr -d [:space:] )
+rm -rf qs.$QUERY_STRING
+
+# if the no ip was entered then display this error and exit
+if [ "$ip" = "" ]; then
+echo "Click back, then type an ip address to search for in the field"
+exit 1
+fi
+# run the hips command
+./hips $month $day $hour $ip

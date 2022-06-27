@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+#
+# This script rotates the logfiles that some of the cgi-scripts create
+# reccomended that this is run weekly or even monthly
+#
+
+# read config file
+. /etc/isgtools.sh
+
+# rotate the log files stored in the cgi-bin
+cd $cgipath
+mv cflap.log.3 cflap.log.4
+mv cflap.log.2 cflap.log.3
+mv cflap.log.1 cflap.log.2
+mv cflap.log cflap.log.1
+mv chost.log.3 chost.log.4
+mv chost.log.2 chost.log.3
+mv chost.log.1 chost.log.2
+mv chost.log chost.log.1
+mv cmodem.log.3 cmodem.log.4
+mv cmodem.log.2 cmodem.log.3
+mv cmodem.log.1 cmodem.log.2
+mv cmodem.log cmodem.log.1
+mv cmsearch.log.3 cmsearch.log.4
+mv cmsearch.log.2 cmsearch.log.3
+mv cmsearch.log.1 cmsearch.log.2
+mv cmsearch.log cmsearch.log.1
+echo -n "" > cflap.log
+echo -n "" > chost.log
+echo -n "" > cmodem.log
+echo -n "" > cmsearch.log
+chown $httpduser:$httpduser cflap.log
+chown $httpduser:$httpduser chost.log
+chown $httpduser:$httpduser cmodem.log
+chown $httpduser:$httpduser cmsearch.log

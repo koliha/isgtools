@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# create variables
+day=$(date +%d)
+month=$(date +%b)
+# change to the current logfile directory
+cd $iplogpath/logs
+# convert the current days logs into a .tar file and remove the raw logfiles
+tar -c *.txt > $day.tar
+rm -rf *.txt
+# compress the .tar
+gzip -9 $day.tar
+# move the new compressed log to the proper archive folder
+mv $day.tar.gz $iplogpath/logs/archive/$month/$day.tar.gz

@@ -1,0 +1,320 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# create the date variable for file naming and pull the modem and cpe
+# ip addresses from each uBR and put them into unique files for each blade
+
+date=$(date +%b.%d-%H)
+if [ "$ubr1ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr1ip 23 > $date.ubr1.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr1ip 23 > $date.ubr1.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr1ip 23 > $date.ubr1.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr1ip 23 > $date.ubr1.c6.txt
+fi
+if [ "$ubr2ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr2ip 23 > $date.ubr2.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr2ip 23 > $date.ubr2.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr2ip 23 > $date.ubr2.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr2ip 23 > $date.ubr2.c6.txt
+fi
+if [ "$ubr3ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr3ip 23 > $date.ubr3.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr3ip 23 > $date.ubr3.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr3ip 23 > $date.ubr3.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr3ip 23 > $date.ubr3.c6.txt
+fi
+if [ "$ubr4ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr4ip 23 > $date.ubr4.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr4ip 23 > $date.ubr4.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr4ip 23 > $date.ubr4.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr4ip 23 > $date.ubr4.c6.txt
+fi
+if [ "$ubr5ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr5ip 23 > $date.ubr5.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr5ip 23 > $date.ubr5.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr5ip 23 > $date.ubr5.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr5ip 23 > $date.ubr5.c6.txt
+fi
+if [ "$ubr6ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr6ip 23 > $date.ubr6.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr6ip 23 > $date.ubr6.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr6ip 23 > $date.ubr6.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr6ip 23 > $date.ubr6.c6.txt
+fi
+if [ "$ubr7ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr7ip 23 > $date.ubr7.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr7ip 23 > $date.ubr7.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr7ip 23 > $date.ubr7.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr7ip 23 > $date.ubr7.c6.txt
+fi
+if [ "$ubr8ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr8ip 23 > $date.ubr8.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr8ip 23 > $date.ubr8.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr8ip 23 > $date.ubr8.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr8ip 23 > $date.ubr8.c6.txt
+fi
+if [ "$ubr9ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr9ip 23 > $date.ubr9.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr9ip 23 > $date.ubr9.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr9ip 23 > $date.ubr9.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr9ip 23 > $date.ubr9.c6.txt
+fi
+if [ "$ubr10ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr10ip 23 > $date.ubr10.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr10ip 23 > $date.ubr10.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr10ip 23 > $date.ubr10.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr10ip 23 > $date.ubr10.c6.txt
+fi
+if [ "$ubr11ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr11ip 23 > $date.ubr11.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr11ip 23 > $date.ubr11.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr11ip 23 > $date.ubr11.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr11ip 23 > $date.ubr11.c6.txt
+fi
+if [ "$ubr12ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr12ip 23 > $date.ubr12.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr12ip 23 > $date.ubr12.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr12ip 23 > $date.ubr12.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr12ip 23 > $date.ubr12.c6.txt
+fi
+if [ "$ubr13ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr13ip 23 > $date.ubr13.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr13ip 23 > $date.ubr13.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr13ip 23 > $date.ubr13.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr13ip 23 > $date.ubr13.c6.txt
+fi
+if [ "$ubr14ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr14ip 23 > $date.ubr14.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr14ip 23 > $date.ubr14.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr14ip 23 > $date.ubr14.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr14ip 23 > $date.ubr14.c6.txt
+fi
+if [ "$ubr15ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr15ip 23 > $date.ubr15.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr15ip 23 > $date.ubr15.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr15ip 23 > $date.ubr15.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr15ip 23 > $date.ubr15.c6.txt
+fi
+if [ "$ubr16ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr16ip 23 > $date.ubr16.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr16ip 23 > $date.ubr16.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr16ip 23 > $date.ubr16.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr16ip 23 > $date.ubr16.c6.txt
+fi
+if [ "$ubr17ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr17ip 23 > $date.ubr17.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr17ip 23 > $date.ubr17.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr17ip 23 > $date.ubr17.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr17ip 23 > $date.ubr17.c6.txt
+fi
+if [ "$ubr18ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr18ip 23 > $date.ubr18.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr18ip 23 > $date.ubr18.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr18ip 23 > $date.ubr18.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr18ip 23 > $date.ubr18.c6.txt
+fi
+if [ "$ubr19ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr19ip 23 > $date.ubr19.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr19ip 23 > $date.ubr19.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr19ip 23 > $date.ubr19.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr19ip 23 > $date.ubr19.c6.txt
+fi
+if [ "$ubr20ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr20ip 23 > $date.ubr20.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr20ip 23 > $date.ubr20.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr20ip 23 > $date.ubr20.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr20ip 23 > $date.ubr20.c6.txt
+fi
+if [ "$ubr21ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr21ip 23 > $date.ubr21.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr21ip 23 > $date.ubr21.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr21ip 23 > $date.ubr21.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr21ip 23 > $date.ubr21.c6.txt
+fi
+if [ "$ubr22ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr22ip 23 > $date.ubr22.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr22ip 23 > $date.ubr22.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr22ip 23 > $date.ubr22.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr22ip 23 > $date.ubr22.c6.txt
+fi
+if [ "$ubr23ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr23ip 23 > $date.ubr23.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr23ip 23 > $date.ubr23.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr23ip 23 > $date.ubr23.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr23ip 23 > $date.ubr23.c6.txt
+fi
+if [ "$ubr24ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr24ip 23 > $date.ubr24.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr24ip 23 > $date.ubr24.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr24ip 23 > $date.ubr24.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr24ip 23 > $date.ubr24.c6.txt
+fi
+if [ "$ubr25ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr25ip 23 > $date.ubr25.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr25ip 23 > $date.ubr25.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr25ip 23 > $date.ubr25.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr25ip 23 > $date.ubr25.c6.txt
+fi
+if [ "$ubr26ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr26ip 23 > $date.ubr26.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr26ip 23 > $date.ubr26.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr26ip 23 > $date.ubr26.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr26ip 23 > $date.ubr26.c6.txt
+fi
+if [ "$ubr27ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr27ip 23 > $date.ubr27.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr27ip 23 > $date.ubr27.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr27ip 23 > $date.ubr27.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr27ip 23 > $date.ubr27.c6.txt
+fi
+if [ "$ubr28ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr28ip 23 > $date.ubr28.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr28ip 23 > $date.ubr28.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr28ip 23 > $date.ubr28.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr28ip 23 > $date.ubr28.c6.txt
+fi
+if [ "$ubr29ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr29ip 23 > $date.ubr29.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr29ip 23 > $date.ubr29.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr29ip 23 > $date.ubr29.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr29ip 23 > $date.ubr29.c6.txt
+fi
+if [ "$ubr30ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr30ip 23 > $date.ubr30.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr30ip 23 > $date.ubr30.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr30ip 23 > $date.ubr30.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr30ip 23 > $date.ubr30.c6.txt
+fi
+if [ "$ubr31ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr31ip 23 > $date.ubr31.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr31ip 23 > $date.ubr31.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr31ip 23 > $date.ubr31.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr31ip 23 > $date.ubr31.c6.txt
+fi
+if [ "$ubr32ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr32ip 23 > $date.ubr32.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr32ip 23 > $date.ubr32.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr32ip 23 > $date.ubr32.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr32ip 23 > $date.ubr32.c6.txt
+fi
+if [ "$ubr33ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr33ip 23 > $date.ubr33.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr33ip 23 > $date.ubr33.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr33ip 23 > $date.ubr33.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr33ip 23 > $date.ubr33.c6.txt
+fi
+if [ "$ubr34ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr34ip 23 > $date.ubr34.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr34ip 23 > $date.ubr34.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr34ip 23 > $date.ubr34.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr34ip 23 > $date.ubr34.c6.txt
+fi
+if [ "$ubr35ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr35ip 23 > $date.ubr35.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr35ip 23 > $date.ubr35.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr35ip 23 > $date.ubr35.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr35ip 23 > $date.ubr35.c6.txt
+fi
+if [ "$ubr36ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr36ip 23 > $date.ubr36.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr36ip 23 > $date.ubr36.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr36ip 23 > $date.ubr36.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr36ip 23 > $date.ubr36.c6.txt
+fi
+if [ "$ubr37ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr37ip 23 > $date.ubr37.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr37ip 23 > $date.ubr37.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr37ip 23 > $date.ubr37.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr37ip 23 > $date.ubr37.c6.txt
+fi
+if [ "$ubr38ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr38ip 23 > $date.ubr38.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr38ip 23 > $date.ubr38.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr38ip 23 > $date.ubr38.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr38ip 23 > $date.ubr38.c6.txt
+fi
+if [ "$ubr39ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr39ip 23 > $date.ubr39.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr39ip 23 > $date.ubr39.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr39ip 23 > $date.ubr39.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr39ip 23 > $date.ubr39.c6.txt
+fi
+if [ "$ubr40ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr40ip 23 > $date.ubr40.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr40ip 23 > $date.ubr40.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr40ip 23 > $date.ubr40.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr40ip 23 > $date.ubr40.c6.txt
+fi
+if [ "$ubr41ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr41ip 23 > $date.ubr41.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr41ip 23 > $date.ubr41.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr41ip 23 > $date.ubr41.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr41ip 23 > $date.ubr41.c6.txt
+fi
+if [ "$ubr42ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr42ip 23 > $date.ubr42.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr42ip 23 > $date.ubr42.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr42ip 23 > $date.ubr42.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr42ip 23 > $date.ubr42.c6.txt
+fi
+if [ "$ubr43ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr43ip 23 > $date.ubr43.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr43ip 23 > $date.ubr43.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr43ip 23 > $date.ubr43.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr43ip 23 > $date.ubr43.c6.txt
+fi
+if [ "$ubr44ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr44ip 23 > $date.ubr44.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr44ip 23 > $date.ubr44.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr44ip 23 > $date.ubr44.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr44ip 23 > $date.ubr44.c6.txt
+fi
+if [ "$ubr45ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr45ip 23 > $date.ubr45.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr45ip 23 > $date.ubr45.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr45ip 23 > $date.ubr45.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr45ip 23 > $date.ubr45.c6.txt
+fi
+if [ "$ubr46ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr46ip 23 > $date.ubr46.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr46ip 23 > $date.ubr46.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr46ip 23 > $date.ubr46.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr46ip 23 > $date.ubr46.c6.txt
+fi
+if [ "$ubr47ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr47ip 23 > $date.ubr47.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr47ip 23 > $date.ubr47.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr47ip 23 > $date.ubr47.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr47ip 23 > $date.ubr47.c6.txt
+fi
+if [ "$ubr48ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr48ip 23 > $date.ubr48.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr48ip 23 > $date.ubr48.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr48ip 23 > $date.ubr48.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr48ip 23 > $date.ubr48.c6.txt
+fi
+if [ "$ubr49ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr49ip 23 > $date.ubr49.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr49ip 23 > $date.ubr49.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr49ip 23 > $date.ubr49.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr49ip 23 > $date.ubr49.c6.txt
+fi
+if [ "$ubr50ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C3/0 mod 0";echo "exit") | nc -n $ubr50ip 23 > $date.ubr50.c3.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C4/0 mod 0";echo "exit") | nc -n $ubr50ip 23 > $date.ubr50.c4.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C5/0 mod 0";echo "exit") | nc -n $ubr50ip 23 > $date.ubr50.c5.txt
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show int C6/0 mod 0";echo "exit") | nc -n $ubr50ip 23 > $date.ubr50.c6.txt
+fi
+
+# move the new logs to the current logfile store
+mv *.txt $iplogpath/logs/

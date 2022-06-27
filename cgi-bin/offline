@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+ubr=$(echo $QUERY_STRING | cut -c 5-6 | tr -d [:space:] | tr -d \& )
+echo "Content-type: text/plain"
+echo ""
+echo ""
+echo "Offline Stats:"
+./offline-main $ubr

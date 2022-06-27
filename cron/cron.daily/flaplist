@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 201-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+#
+# This script pulls/emails the flaplist
+# reccomended to run nightly
+#
+
+
+# read config file
+. /etc/isgtools.sh
+
+cd $flappath
+./flaplist
+# comment out if you don't want the flaplist emailed to anyone
+./mailresults

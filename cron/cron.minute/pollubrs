@@ -1,0 +1,331 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+#
+# This script polls the ubrs to obtain an updated listing of the modems that
+# are connected and their state.
+# HIGHLY RECCOMENDED TO RUN ONCE PER MINUTE OR ONCE PER 5MINS _MINIMUM_
+# if you don't the modem information on the search page will only update
+# at that interval.
+#
+
+
+# read config file
+. /etc/isgtools.sh
+
+# update the lastupdated file
+date > $cgipath/ubrdata/lastupdated
+# pull all modems from all uBR's and dump them to the cgi ubrdata store as temp files
+
+if [ "$ubr1ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr1ip 23 > $cgipath/ubrdata/ubr1.tmp
+fi
+if [ "$ubr2ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr2ip 23 > $cgipath/ubrdata/ubr2.tmp
+fi
+if [ "$ubr3ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr3ip 23 > $cgipath/ubrdata/ubr3.tmp
+fi
+if [ "$ubr4ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr4ip 23 > $cgipath/ubrdata/ubr4.tmp
+fi
+if [ "$ubr5ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr5ip 23 > $cgipath/ubrdata/ubr5.tmp
+fi
+if [ "$ubr6ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr6ip 23 > $cgipath/ubrdata/ubr6.tmp
+fi
+if [ "$ubr7ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr7ip 23 > $cgipath/ubrdata/ubr7.tmp
+fi
+if [ "$ubr8ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr8ip 23 > $cgipath/ubrdata/ubr8.tmp
+fi
+if [ "$ubr9ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr9ip 23 > $cgipath/ubrdata/ubr9.tmp
+fi
+if [ "$ubr10ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr10ip 23 > $cgipath/ubrdata/ubr10.tmp
+fi
+if [ "$ubr11ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr11ip 23 > $cgipath/ubrdata/ubr11.tmp
+fi
+if [ "$ubr12ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr12ip 23 > $cgipath/ubrdata/ubr12.tmp
+fi
+if [ "$ubr13ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr13ip 23 > $cgipath/ubrdata/ubr13.tmp
+fi
+if [ "$ubr14ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr14ip 23 > $cgipath/ubrdata/ubr14.tmp
+fi
+if [ "$ubr15ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr15ip 23 > $cgipath/ubrdata/ubr15.tmp
+fi
+if [ "$ubr16ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr16ip 23 > $cgipath/ubrdata/ubr16.tmp
+fi
+if [ "$ubr17ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr17ip 23 > $cgipath/ubrdata/ubr17.tmp
+fi
+if [ "$ubr18ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr18ip 23 > $cgipath/ubrdata/ubr18.tmp
+fi
+if [ "$ubr19ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr19ip 23 > $cgipath/ubrdata/ubr19.tmp
+fi
+if [ "$ubr20ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr20ip 23 > $cgipath/ubrdata/ubr20.tmp
+fi
+if [ "$ubr21ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr21ip 23 > $cgipath/ubrdata/ubr21.tmp
+fi
+if [ "$ubr22ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr22ip 23 > $cgipath/ubrdata/ubr22.tmp
+fi
+if [ "$ubr23ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr23ip 23 > $cgipath/ubrdata/ubr23.tmp
+fi
+if [ "$ubr24ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr24ip 23 > $cgipath/ubrdata/ubr24.tmp
+fi
+if [ "$ubr25ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr25ip 23 > $cgipath/ubrdata/ubr25.tmp
+fi
+if [ "$ubr26ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr26ip 23 > $cgipath/ubrdata/ubr26.tmp
+fi
+if [ "$ubr27ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr27ip 23 > $cgipath/ubrdata/ubr27.tmp
+fi
+if [ "$ubr28ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr28ip 23 > $cgipath/ubrdata/ubr28.tmp
+fi
+if [ "$ubr29ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr29ip 23 > $cgipath/ubrdata/ubr29.tmp
+fi
+if [ "$ubr30ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr30ip 23 > $cgipath/ubrdata/ubr30.tmp
+fi
+if [ "$ubr31ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr31ip 23 > $cgipath/ubrdata/ubr31.tmp
+fi
+if [ "$ubr32ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr32ip 23 > $cgipath/ubrdata/ubr32.tmp
+fi
+if [ "$ubr33ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr33ip 23 > $cgipath/ubrdata/ubr33.tmp
+fi
+if [ "$ubr34ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr34ip 23 > $cgipath/ubrdata/ubr34.tmp
+fi
+if [ "$ubr35ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr35ip 23 > $cgipath/ubrdata/ubr35.tmp
+fi
+if [ "$ubr36ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr36ip 23 > $cgipath/ubrdata/ubr36.tmp
+fi
+if [ "$ubr37ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr37ip 23 > $cgipath/ubrdata/ubr37.tmp
+fi
+if [ "$ubr38ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr38ip 23 > $cgipath/ubrdata/ubr38.tmp
+fi
+if [ "$ubr39ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr39ip 23 > $cgipath/ubrdata/ubr39.tmp
+fi
+if [ "$ubr40ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr40ip 23 > $cgipath/ubrdata/ubr40.tmp
+fi
+if [ "$ubr41ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr41ip 23 > $cgipath/ubrdata/ubr41.tmp
+fi
+if [ "$ubr42ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr42ip 23 > $cgipath/ubrdata/ubr42.tmp
+fi
+if [ "$ubr43ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr43ip 23 > $cgipath/ubrdata/ubr43.tmp
+fi
+if [ "$ubr44ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr44ip 23 > $cgipath/ubrdata/ubr44.tmp
+fi
+if [ "$ubr45ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr45ip 23 > $cgipath/ubrdata/ubr45.tmp
+fi
+if [ "$ubr46ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr46ip 23 > $cgipath/ubrdata/ubr46.tmp
+fi
+if [ "$ubr47ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr47ip 23 > $cgipath/ubrdata/ubr47.tmp
+fi
+if [ "$ubr48ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr48ip 23 > $cgipath/ubrdata/ubr48.tmp
+fi
+if [ "$ubr49ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr49ip 23 > $cgipath/ubrdata/ubr49.tmp
+fi
+if [ "$ubr50ip" != "0.0.0.0" ] ; then
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "show cab mod";echo "exit") | nc -n $ubr50ip 23 > $cgipath/ubrdata/ubr50.tmp
+fi
+
+
+# since the poll is complete overwrite the current polls with the new temporary files
+# to avoid false-misses when searching for modems
+cd $cgipath/ubrdata
+if [ -s ubr1.tmp ] ; then
+mv ubr1.tmp ubr1.poll
+fi
+if [ -s ubr2.tmp ] ; then
+mv ubr2.tmp ubr2.poll
+fi
+if [ -s ubr3.tmp ] ; then
+mv ubr3.tmp ubr3.poll
+fi
+if [ -s ubr4.tmp ] ; then
+mv ubr4.tmp ubr4.poll
+fi
+if [ -s ubr5.tmp ] ; then
+mv ubr5.tmp ubr5.poll
+fi
+if [ -s ubr6.tmp ] ; then
+mv ubr6.tmp ubr6.poll
+fi
+if [ -s ubr7.tmp ] ; then
+mv ubr7.tmp ubr7.poll
+fi
+if [ -s ubr8.tmp ] ; then
+mv ubr8.tmp ubr8.poll
+fi
+if [ -s ubr9.tmp ] ; then
+mv ubr9.tmp ubr9.poll
+fi
+if [ -s ubr10.tmp ] ; then
+mv ubr10.tmp ubr10.poll
+fi
+if [ -s ubr11.tmp ] ; then
+mv ubr11.tmp ubr11.poll
+fi
+if [ -s ubr12.tmp ] ; then
+mv ubr12.tmp ubr12.poll
+fi
+if [ -s ubr13.tmp ] ; then
+mv ubr13.tmp ubr13.poll
+fi
+if [ -s ubr14.tmp ] ; then
+mv ubr14.tmp ubr14.poll
+fi
+if [ -s ubr15.tmp ] ; then
+mv ubr15.tmp ubr15.poll
+fi
+if [ -s ubr16.tmp ] ; then
+mv ubr16.tmp ubr16.poll
+fi
+if [ -s ubr17.tmp ] ; then
+mv ubr17.tmp ubr17.poll
+fi
+if [ -s ubr18.tmp ] ; then
+mv ubr18.tmp ubr18.poll
+fi
+if [ -s ubr19.tmp ] ; then
+mv ubr19.tmp ubr19.poll
+fi
+if [ -s ubr20.tmp ] ; then
+mv ubr20.tmp ubr20.poll
+fi
+if [ -s ubr21.tmp ] ; then
+mv ubr21.tmp ubr21.poll
+fi
+if [ -s ubr22.tmp ] ; then
+mv ubr22.tmp ubr22.poll
+fi
+if [ -s ubr23.tmp ] ; then
+mv ubr23.tmp ubr23.poll
+fi
+if [ -s ubr24.tmp ] ; then
+mv ubr24.tmp ubr24.poll
+fi
+if [ -s ubr25.tmp ] ; then
+mv ubr25.tmp ubr25.poll
+fi
+if [ -s ubr26.tmp ] ; then
+mv ubr26.tmp ubr26.poll
+fi
+if [ -s ubr27.tmp ] ; then
+mv ubr27.tmp ubr27.poll
+fi
+if [ -s ubr28.tmp ] ; then
+mv ubr28.tmp ubr28.poll
+fi
+if [ -s ubr29.tmp ] ; then
+mv ubr29.tmp ubr29.poll
+fi
+if [ -s ubr30.tmp ] ; then
+mv ubr30.tmp ubr30.poll
+fi
+if [ -s ubr31.tmp ] ; then
+mv ubr31.tmp ubr31.poll
+fi
+if [ -s ubr32.tmp ] ; then
+mv ubr32.tmp ubr32.poll
+fi
+if [ -s ubr33.tmp ] ; then
+mv ubr33.tmp ubr33.poll
+fi
+if [ -s ubr34.tmp ] ; then
+mv ubr34.tmp ubr34.poll
+fi
+if [ -s ubr35.tmp ] ; then
+mv ubr35.tmp ubr35.poll
+fi
+if [ -s ubr36.tmp ] ; then
+mv ubr36.tmp ubr36.poll
+fi
+if [ -s ubr37.tmp ] ; then
+mv ubr37.tmp ubr37.poll
+fi
+if [ -s ubr38.tmp ] ; then
+mv ubr38.tmp ubr38.poll
+fi
+if [ -s ubr39.tmp ] ; then
+mv ubr39.tmp ubr39.poll
+fi
+if [ -s ubr40.tmp ] ; then
+mv ubr40.tmp ubr40.poll
+fi
+if [ -s ubr41.tmp ] ; then
+mv ubr41.tmp ubr41.poll
+fi
+if [ -s ubr42.tmp ] ; then
+mv ubr42.tmp ubr42.poll
+fi
+if [ -s ubr43.tmp ] ; then
+mv ubr43.tmp ubr43.poll
+fi
+if [ -s ubr44.tmp ] ; then
+mv ubr44.tmp ubr44.poll
+fi
+if [ -s ubr45.tmp ] ; then
+mv ubr45.tmp ubr45.poll
+fi
+if [ -s ubr46.tmp ] ; then
+mv ubr46.tmp ubr46.poll
+fi
+if [ -s ubr47.tmp ] ; then
+mv ubr47.tmp ubr47.poll
+fi
+if [ -s ubr48.tmp ] ; then
+mv ubr48.tmp ubr48.poll
+fi
+if [ -s ubr49.tmp ] ; then
+mv ubr49.tmp ubr49.poll
+fi
+if [ -s ubr50.tmp ] ; then
+mv ubr50.tmp ubr50.poll
+fi

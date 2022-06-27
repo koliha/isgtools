@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+echo "Content-type: text/html"
+echo ""
+# determine ip to search for from $QUERY_STRING
+echo $QUERY_STRING > qs.$QUERY_STRING
+( echo w ; echo quit ) | /bin/ex -c :1s/"=Search"/ qs.$QUERY_STRING
+ip=$(cat qs.$QUERY_STRING | tr -d \& | tr A-Z a-z | tr - . | cut -c 4-20 )
+rm -rf qs.$QUERY_STRING
+# if no ip was entered then display an error page and exit
+if [ "$ip" = "" ]; then
+echo "Click back, then type an ip address to search for in the field"
+exit 1
+fi
+# if the modem was found determine the modem's mac address by running
+# ipsearch and extracting the macid from it's output
+macid=$(./ips $ip | grep modem | cut -c 62-75)
+# if the mac address isn't blank then launch the modemsearch script and pull
+# the modem diagnostics (including all cpe's) from the modem
+if [ "$macid" != "" ]
+then
+echo "<CENTER><B>[ $ip ] &nbsp is behind &nbsp [ $macid ]</B></CENTER><BR>"
+./cmsearch $macid
+else
+# if the macid is blank then display an error page and exit
+echo "<B>IP not found.</B><BR><BR>"
+echo "Possible causes include:<BR><BR>"
+echo "* IP has not been assigned in the last 6-12 hours<BR>"
+echo "* Wrong IP entered<BR>"
+echo "* Invalid IP address entered<BR><BR>"
+echo "IP addresses may ben entered in standard format:<BR>"
+echo "ie: 24.158.64.30<BR><BR><BR>"
+echo "Please click back and try again<BR>"
+exit 1
+fi

@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+#
+# This script when coupled with a properly edited invalid-scan script
+# can email you invalid ip's detected on the network
+# reccomened to run nightly or weekly
+#
+
+
+# read config file
+. /etc/isgtools.sh
+
+cd $iplogpath
+./invalid-scan | mail -s "Daily Invalid IP Report" $invalidipemail

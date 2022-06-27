@@ -1,0 +1,425 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# pull flaplists from each configured uBR and then clear the flaplist
+
+if [ "$ubr1ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 1 > ubr1.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr1ip 23 >> ubr1.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr1ip 23 > tmp
+fi
+if [ "$ubr2ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 2 > ubr2.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr2ip 23 >> ubr2.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr2ip 23 > tmp
+fi
+if [ "$ubr3ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 3 > ubr3.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr3ip 23 >> ubr3.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr3ip 23 > tmp
+fi
+if [ "$ubr4ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 4 > ubr4.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr4ip 23 >> ubr4.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr4ip 23 > tmp
+fi
+if [ "$ubr5ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 5 > ubr5.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr5ip 23 >> ubr5.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr5ip 23 > tmp
+fi
+if [ "$ubr6ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 6 > ubr6.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr6ip 23 >> ubr6.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr6ip 23 > tmp
+fi
+if [ "$ubr7ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 7 > ubr7.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr7ip 23 >> ubr7.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr7ip 23 > tmp
+fi
+if [ "$ubr8ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 8 > ubr8.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr8ip 23 >> ubr8.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr8ip 23 > tmp
+fi
+if [ "$ubr9ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 9 > ubr9.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr9ip 23 >> ubr9.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr9ip 23 > tmp
+fi
+if [ "$ubr10ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 10 > ubr10.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr10ip 23 >> ubr10.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr10ip 23 > tmp
+fi
+if [ "$ubr11ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 11 > ubr11.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr11ip 23 >> ubr11.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr11ip 23 > tmp
+fi
+if [ "$ubr12ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 12 > ubr12.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr12ip 23 >> ubr12.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr12ip 23 > tmp
+fi
+if [ "$ubr13ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 13 > ubr13.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr13ip 23 >> ubr13.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr13ip 23 > tmp
+fi
+if [ "$ubr14ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 14 > ubr14.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr14ip 23 >> ubr14.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr14ip 23 > tmp
+fi
+if [ "$ubr15ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 15 > ubr15.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr15ip 23 >> ubr15.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr15ip 23 > tmp
+fi
+if [ "$ubr16ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 16 > ubr16.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr16ip 23 >> ubr16.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr16ip 23 > tmp
+fi
+if [ "$ubr17ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 17 > ubr17.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr17ip 23 >> ubr17.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr17ip 23 > tmp
+fi
+if [ "$ubr18ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 18 > ubr18.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr18ip 23 >> ubr18.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr18ip 23 > tmp
+fi
+if [ "$ubr19ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 19 > ubr19.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr19ip 23 >> ubr19.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr19ip 23 > tmp
+fi
+if [ "$ubr20ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 20 > ubr20.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr20ip 23 >> ubr20.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr20ip 23 > tmp
+fi
+if [ "$ubr21ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 21 > ubr21.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr21ip 23 >> ubr21.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr21ip 23 > tmp
+fi
+if [ "$ubr22ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 22 > ubr22.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr22ip 23 >> ubr22.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr22ip 23 > tmp
+fi
+if [ "$ubr23ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 23 > ubr23.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr23ip 23 >> ubr23.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr23ip 23 > tmp
+fi
+if [ "$ubr24ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 24 > ubr24.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr24ip 23 >> ubr24.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr24ip 23 > tmp
+fi
+if [ "$ubr25ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 25 > ubr25.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr25ip 23 >> ubr25.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr25ip 23 > tmp
+fi
+if [ "$ubr26ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 26 > ubr26.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr26ip 23 >> ubr26.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr26ip 23 > tmp
+fi
+if [ "$ubr27ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 27 > ubr27.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr27ip 23 >> ubr27.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr27ip 23 > tmp
+fi
+if [ "$ubr28ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 28 > ubr28.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr28ip 23 >> ubr28.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr28ip 23 > tmp
+fi
+if [ "$ubr29ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 29 > ubr29.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr29ip 23 >> ubr29.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr29ip 23 > tmp
+fi
+if [ "$ubr30ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 30 > ubr30.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr30ip 23 >> ubr30.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr30ip 23 > tmp
+fi
+if [ "$ubr31ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 31 > ubr31.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr31ip 23 >> ubr31.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr31ip 23 > tmp
+fi
+if [ "$ubr32ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 32 > ubr32.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr32ip 23 >> ubr32.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr32ip 23 > tmp
+fi
+if [ "$ubr33ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 33 > ubr33.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr33ip 23 >> ubr33.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr33ip 23 > tmp
+fi
+if [ "$ubr34ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 34 > ubr34.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr34ip 23 >> ubr34.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr34ip 23 > tmp
+fi
+if [ "$ubr35ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 35 > ubr35.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr35ip 23 >> ubr35.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr35ip 23 > tmp
+fi
+if [ "$ubr36ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 36 > ubr36.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr36ip 23 >> ubr36.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr36ip 23 > tmp
+fi
+if [ "$ubr37ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 37 > ubr37.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr37ip 23 >> ubr37.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr37ip 23 > tmp
+fi
+if [ "$ubr38ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 38 > ubr38.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr38ip 23 >> ubr38.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr38ip 23 > tmp
+fi
+if [ "$ubr39ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 39 > ubr39.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr39ip 23 >> ubr39.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr39ip 23 > tmp
+fi
+if [ "$ubr40ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 40 > ubr40.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr40ip 23 >> ubr40.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr40ip 23 > tmp
+fi
+if [ "$ubr41ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 41 > ubr41.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr41ip 23 >> ubr41.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr41ip 23 > tmp
+fi
+if [ "$ubr42ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 42 > ubr42.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr42ip 23 >> ubr42.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr42ip 23 > tmp
+fi
+if [ "$ubr43ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 43 > ubr43.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr43ip 23 >> ubr43.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr43ip 23 > tmp
+fi
+if [ "$ubr44ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 44 > ubr44.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr44ip 23 >> ubr44.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr44ip 23 > tmp
+fi
+if [ "$ubr45ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 45 > ubr45.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr45ip 23 >> ubr45.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr45ip 23 > tmp
+fi
+if [ "$ubr46ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 46 > ubr46.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr46ip 23 >> ubr46.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr46ip 23 > tmp
+fi
+if [ "$ubr47ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 47 > ubr47.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr47ip 23 >> ubr47.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr47ip 23 > tmp
+fi
+if [ "$ubr48ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 48 > ubr48.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr48ip 23 >> ubr48.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr48ip 23 > tmp
+fi
+if [ "$ubr49ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 49 > ubr49.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr49ip 23 >> ubr49.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr49ip 23 > tmp
+fi
+if [ "$ubr50ip" != "0.0.0.0" ] ; then
+$cgipath/ubrchk 50 > ubr50.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "show cable flap sort-f";sleep 1;echo "exit") | nc -n $ubr50ip 23 >> ubr50.tmp
+(echo "$ubruser";echo "$ubrpass";sleep 2;echo "terminal length 0";sleep 1;echo "clear cable flap all";sleep 1;echo "exit") | nc -n $ubr50ip 23 > tmp
+fi
+
+# get rid of some unneeded stuff and put the results into the final .txt files
+if [ -s ubr1.tmp ] ; then
+cat ubr1.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr1.txt
+fi
+if [ -s ubr2.tmp ] ; then
+cat ubr2.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr2.txt
+fi
+if [ -s ubr3.tmp ] ; then
+cat ubr3.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr3.txt
+fi
+if [ -s ubr4.tmp ] ; then
+cat ubr4.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr4.txt
+fi
+if [ -s ubr5.tmp ] ; then
+cat ubr5.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr5.txt
+fi
+if [ -s ubr6.tmp ] ; then
+cat ubr6.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr6.txt
+fi
+if [ -s ubr7.tmp ] ; then
+cat ubr7.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr7.txt
+fi
+if [ -s ubr8.tmp ] ; then
+cat ubr8.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr8.txt
+fi
+if [ -s ubr9.tmp ] ; then
+cat ubr9.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr9.txt
+fi
+if [ -s ubr10.tmp ] ; then
+cat ubr10.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr10.txt
+fi
+if [ -s ubr11.tmp ] ; then
+cat ubr11.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr11.txt
+fi
+if [ -s ubr12.tmp ] ; then
+cat ubr12.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr12.txt
+fi
+if [ -s ubr13.tmp ] ; then
+cat ubr13.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr13.txt
+fi
+if [ -s ubr14.tmp ] ; then
+cat ubr14.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr14.txt
+fi
+if [ -s ubr15.tmp ] ; then
+cat ubr15.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr15.txt
+fi
+if [ -s ubr16.tmp ] ; then
+cat ubr16.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr16.txt
+fi
+if [ -s ubr17.tmp ] ; then
+cat ubr17.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr17.txt
+fi
+if [ -s ubr18.tmp ] ; then
+cat ubr18.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr18.txt
+fi
+if [ -s ubr19.tmp ] ; then
+cat ubr19.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr19.txt
+fi
+if [ -s ubr20.tmp ] ; then
+cat ubr20.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr20.txt
+fi
+if [ -s ubr21.tmp ] ; then
+cat ubr21.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr21.txt
+fi
+if [ -s ubr22.tmp ] ; then
+cat ubr22.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr22.txt
+fi
+if [ -s ubr23.tmp ] ; then
+cat ubr23.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr23.txt
+fi
+if [ -s ubr24.tmp ] ; then
+cat ubr24.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr24.txt
+fi
+if [ -s ubr25.tmp ] ; then
+cat ubr25.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr25.txt
+fi
+if [ -s ubr26.tmp ] ; then
+cat ubr26.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr26.txt
+fi
+if [ -s ubr27.tmp ] ; then
+cat ubr27.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr27.txt
+fi
+if [ -s ubr28.tmp ] ; then
+cat ubr28.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr28.txt
+fi
+if [ -s ubr29.tmp ] ; then
+cat ubr29.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr29.txt
+fi
+if [ -s ubr30.tmp ] ; then
+cat ubr30.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr30.txt
+fi
+if [ -s ubr31.tmp ] ; then
+cat ubr31.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr31.txt
+fi
+if [ -s ubr32.tmp ] ; then
+cat ubr32.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr32.txt
+fi
+if [ -s ubr33.tmp ] ; then
+cat ubr33.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr33.txt
+fi
+if [ -s ubr34.tmp ] ; then
+cat ubr34.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr34.txt
+fi
+if [ -s ubr35.tmp ] ; then
+cat ubr35.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr35.txt
+fi
+if [ -s ubr36.tmp ] ; then
+cat ubr36.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr36.txt
+fi
+if [ -s ubr37.tmp ] ; then
+cat ubr37.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr37.txt
+fi
+if [ -s ubr38.tmp ] ; then
+cat ubr38.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr38.txt
+fi
+if [ -s ubr39.tmp ] ; then
+cat ubr39.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr39.txt
+fi
+if [ -s ubr40.tmp ] ; then
+cat ubr40.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr40.txt
+fi
+if [ -s ubr41.tmp ] ; then
+cat ubr41.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr41.txt
+fi
+if [ -s ubr42.tmp ] ; then
+cat ubr42.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr42.txt
+fi
+if [ -s ubr43.tmp ] ; then
+cat ubr43.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr43.txt
+fi
+if [ -s ubr44.tmp ] ; then
+cat ubr44.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr44.txt
+fi
+if [ -s ubr45.tmp ] ; then
+cat ubr45.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr45.txt
+fi
+if [ -s ubr46.tmp ] ; then
+cat ubr46.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr46.txt
+fi
+if [ -s ubr47.tmp ] ; then
+cat ubr47.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr47.txt
+fi
+if [ -s ubr48.tmp ] ; then
+cat ubr48.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr48.txt
+fi
+if [ -s ubr49.tmp ] ; then
+cat ubr49.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr49.txt
+fi
+if [ -s ubr50.tmp ] ; then
+cat ubr50.tmp | grep -v NC | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+" > ubr50.txt
+fi
+
+# create last updated file for use in the modemsearch script
+(echo -n "Last Updated: " ; date) > results/lastupdated
+# move the new results into the results folder
+mv *.txt results/
+# cleanup
+rm -rf tmp
+rm -rf *.tmp

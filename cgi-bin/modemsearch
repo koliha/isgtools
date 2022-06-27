@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+echo "Content-type: text/html"
+# determine the search string from $QUERY_STRING
+echo $QUERY_STRING > qs.$QUERY_STRING
+( echo w ; echo quit ) | /bin/ex -c :1s/"=Search"/ qs.$QUERY_STRING
+macid=$(cat qs.$QUERY_STRING | tr -d \& | tr A-Z a-z | tr - . | cut -c 7-20 )
+rm -rf qs.$QUERY_STRING
+# if no search string was entered then display an error page
+if [ "$macid" = "" ]; then
+echo ""
+echo "Click back, then type a mac address to search for in the field"
+exit 1
+fi
+# if a search string was entered run the cmsearch command and pass
+# the remote IP for logging purposes
+./cmsearch $macid $REMOTE_ADDR

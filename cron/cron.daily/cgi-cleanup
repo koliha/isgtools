@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+#
+# This script cleans up the text based search results and stale
+# snmpmodem polls
+# reccomend that this script is run nightly
+#
+
+# read config file
+. /etc/isgtools.sh
+
+# remove text based search results and stale snmp modem results
+rm -rf $htmlpath/cmtxt/*
+rm -rf $cgipath/snmpmodem.*
+rm -rf $cgipath/ubr1*
+rm -rf $cgipath/ubr20*

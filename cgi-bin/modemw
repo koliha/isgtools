@@ -1,0 +1,147 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+
+# poll the modem and turn the results into variables
+dmacid=$( echo $1 | tr -d . )
+( $javapath/java -jar $docsdiagpath/docsdiag.jar -cmmac $dmacid -cmip $2 ) > snmpmodem.$1
+downstreamtxt=$(cat snmpmodem.$1 | grep Downstream | grep power | cut -c 40-50 | tr -d [:space:])
+downstream=$(cat snmpmodem.$1 | grep Downstream | grep power | cut -c 40-50 | tr -d d | tr -d B | tr -d m | tr -d V | tr -d . | tr -d [:space:])
+upstream=$(cat snmpmodem.$1 | grep Upstream | grep power | cut -c 40-50 | tr -d d | tr -d B | tr -d m | tr -d V | tr -d . | tr -d [:space:])
+upstreamtxt=$(cat snmpmodem.$1 | grep Upstream | grep power | cut -c 40-50 | tr -d [:space:])
+snrtxt=$(cat snmpmodem.$1 | grep Noise | cut -c 40-50 | tr -d [:space:] )
+snr=$(cat snmpmodem.$1 | grep Noise | cut -c 40-50 | tr -d d | tr -d B | tr -d . | tr -d [:space:])
+infoline=$(cat snmpmodem.$1 | head -n 6 | tail -n 1)
+rm -rf snmpmodem.$1
+
+# check to make sure that we pulled some power levels from the modem
+# skip determining proper graphic for signal if nothing was pulled
+if [ "$upstream" = "" ] ; then
+upstreamgif="unknown.gif"
+downstreamgif="unknown.gif"
+snrgif="unknown.gif"
+else
+#
+# determine power levels and make the gif variable equal the filename 
+# to reference in the html output
+# 
+# note: we remove all the decimals, that's why the values are in the 100's
+#
+
+
+# upstream
+upstreamtest=$( echo $upstream | tr -d . )
+upstreamgif="green.gif"
+
+if [ $upstreamtest -le 200 ] ; then
+if [ $upstreamtest -le 200 ] ; then
+if [ $upstreamtest -le 100 ] ; then
+upstreamgif="red.gif"
+else
+upstreamgif="yellow.gif"
+fi
+fi
+else
+if [ $upstreamtest -ge 400 ] ; then
+if [ $upstreamtest -ge 400 ] ; then
+if [ $upstreamtest -ge 500 ] ; then
+upstreamgif="red.gif"
+else
+upstreamgif="yellow.gif"
+fi
+fi
+fi
+fi
+
+# downstream
+downstreamtest=$( echo $downstream | tr -d . )
+downstreamgif="green.gif"
+
+if [ $downstreamtest -le -100 ] ; then
+if [ $downstreamtest -le -100 ] ; then
+if [ $downstreamtest -le -150 ] ; then
+downstreamgif="red.gif"
+else
+downstreamgif="yellow.gif"
+fi
+fi
+else
+if [ $downstreamtest -ge 100 ] ; then
+if [ $downstreamtest -ge 100 ] ; then
+if [ $downstreamtest -ge 150 ] ; then
+downstreamgif="red.gif"
+else
+downstreamgif="yellow.gif"
+fi
+fi
+fi
+fi
+
+# snr
+snrtest=$( echo $snr | tr -d . )
+snrgif="green.gif"
+
+if [ $snrtest -le 200 ] ; then
+if [ $snrtest -le 200 ] ; then
+if [ $snrtest -le 100 ] ; then
+snrgif="red.gif"
+else
+snrgif="yellow.gif"
+fi
+fi
+fi
+
+# close the original if statement
+fi
+
+
+#
+# html creation
+#
+echo ""
+echo "<HTML>"
+echo "<HEAD>"
+echo "<META HTTP-EQUIV="Content-Type" CONTENT="text/html" </head>"
+echo "<META HTTP-EQUIV="Refresh" content="0">"
+echo "</HEAD>"
+echo "<BODY>"
+echo "<P><CENTER><FONT SIZE="-2" FACE="Arial"> $infoline </FONT><BR><BR>"
+echo "<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0" WIDTH="40%" bordercolor="#111111">"
+echo "<TR><TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">MAC Address</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$1</FONT></B></TD>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699">"
+echo "<P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">IP Address</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$2</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Upstream Power</FONT></B></TD>"
+echo "<TD><STRONG><FONT SIZE="-1" FACE="Arial"><CENTER><IMG SRC=/$upstreamgif ALIGN="BOTTOM"></FONT></STRONG></CENTER></TD>"
+echo "<TD>"
+echo "<P><CENTER><B><FONT COLOR="#000000" SIZE="-1" FACE="Arial">$upstreamtxt</FONT></B></CENTER></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Downstream Power</FONT></B></TD>"
+echo "<TD><CENTER><IMG SRC=/$downstreamgif ALIGN="BOTTOM"></CENTER></TD>"
+echo "<TD>"
+echo "<P><CENTER><STRONG><FONT SIZE="-1" FACE="Arial">$downstreamtxt</FONT></STRONG></CENTER></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699">"
+echo "<P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">SNR</FONT></B></TD>"
+echo "<TD><B><FONT SIZE="-1" FACE="Arial"><CENTER><IMG SRC=/$snrgif ALIGN="BOTTOM"></FONT></B></CENTER></TD>"
+echo "<TD>"
+echo "<P><CENTER><B><FONT SIZE="-1" FACE="Arial">$snrtxt</FONT></B></CENTER></TD>"
+echo "</TR>"
+echo "</TABLE></P>"
+

@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# This will probably only work with the US but feel free to play
+# around and see if it works in other countries..
+#
+# This script grabs a little icon with just the current temp from weather underground
+# you can run this hourly and put the image somwhere on your internet/intranet site and have
+# weather/temperature without a lot of ads.. a lot more integratable into a site..
+#
+# sometimes the link doesn't work so we run this in a cron script and reference it locally
+# so we never get broken image links
+#
+#
+
+# read config file
+. /etc/isgtools.sh
+
+# your state abbreviation
+state="nc"
+# your city name (or closest major local city) CAPATALIZE THE FIRST LETTER!
+city="Hickory"
+# path to wget
+wgetpath="/usr/bin"
+# what to name temperature icon (.gif extension)
+name="temp"
+
+cd /tmp
+# run wget and grab the image, move it to your base html directory with the filename temp.gif
+$wgetpath/wget -q http://banners.wunderground.com/banner/smalltemp/US/$state/$city.gif
+mv $city.gif $htmlpath/$name.gif

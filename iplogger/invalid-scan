@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# please edit the below line and replace / add the class a(s) address blocks to exclude from the invalid ip report
+#
+# adding additional class a's is pretty easy, just add:  | grep -v "00." |
+# in there just like you see below
+
+cat logs/*.txt | cut -c 38-51 | grep -v "10." | grep -v "24." | grep -v "66." | sort -n | uniq | grep -v able | grep -v " 0"

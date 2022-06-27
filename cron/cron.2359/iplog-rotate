@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+#
+# This script compresses and rotates the current logfiles and archives them
+# 
+# IMPORTANT: This script MUST be run DAILY for the historical ip tool to function
+#
+
+# read configuration file
+. /etc/isgtools.sh
+
+cd $iplogpath
+./compress-current

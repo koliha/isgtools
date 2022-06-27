@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+cmmac=$( echo $QUERY_STRING | cut -c 7-20 )
+cmip=$( echo $QUERY_STRING | cut -c 26-50 | tr -d [:space:] )
+echo "Content-type: text/html"
+echo ""
+./modemw $cmmac $cmip

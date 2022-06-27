@@ -1,0 +1,176 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+cd $flappath/results
+
+# mail each flaplist individually to the $flapemail recipients (specified in /etc/isgtools.sh)
+#
+# to add additional accounts just put them at the end
+# ie: cat ubr1.txt | mail -s "$ubrname Daily Flap List" $flapemail user3@domain.com
+# This also allows you to have a general person/persons to send the list to and if someone
+# needs just one of the lists then they too can get it without recieving all of them
+# you can also delete the $flapemail variable all together and seperate the emails to send
+# the list to by spaces
+
+if [ -s ubr1.txt ] ; then
+cat ubr1.txt | mail -s "$ubr1name Daily Flap List" $flapemail
+fi
+if [ -s ubr2.txt ] ; then
+cat ubr2.txt | mail -s "$ubr2name Daily Flap List" $flapemail
+fi
+if [ -s ubr3.txt ] ; then
+cat ubr3.txt | mail -s "$ubr3name Daily Flap List" $flapemail
+fi
+if [ -s ubr4.txt ] ; then
+cat ubr4.txt | mail -s "$ubr4name Daily Flap List" $flapemail
+fi
+if [ -s ubr5.txt ] ; then
+cat ubr5.txt | mail -s "$ubr5name Daily Flap List" $flapemail
+fi
+if [ -s ubr6.txt ] ; then
+cat ubr6.txt | mail -s "$ubr6name Daily Flap List" $flapemail
+fi
+if [ -s ubr7.txt ] ; then
+cat ubr7.txt | mail -s "$ubr7name Daily Flap List" $flapemail
+fi
+if [ -s ubr8.txt ] ; then
+cat ubr8.txt | mail -s "$ubr8name Daily Flap List" $flapemail
+fi
+if [ -s ubr9.txt ] ; then
+cat ubr9.txt | mail -s "$ubr9name Daily Flap List" $flapemail
+fi
+if [ -s ubr10.txt ] ; then
+cat ubr10.txt | mail -s "$ubr10name Daily Flap List" $flapemail
+fi
+
+
+if [ -s ubr11.txt ] ; then
+cat ubr11.txt | mail -s "$ubr1name Daily Flap List" $flapemail
+fi
+if [ -s ubr12.txt ] ; then
+cat ubr12.txt | mail -s "$ubr2name Daily Flap List" $flapemail
+fi
+if [ -s ubr13.txt ] ; then
+cat ubr13.txt | mail -s "$ubr3name Daily Flap List" $flapemail
+fi
+if [ -s ubr14.txt ] ; then
+cat ubr14.txt | mail -s "$ubr4name Daily Flap List" $flapemail
+fi
+if [ -s ubr15.txt ] ; then
+cat ubr15.txt | mail -s "$ubr5name Daily Flap List" $flapemail
+fi
+if [ -s ubr16.txt ] ; then
+cat ubr16.txt | mail -s "$ubr6name Daily Flap List" $flapemail
+fi
+if [ -s ubr17.txt ] ; then
+cat ubr17.txt | mail -s "$ubr7name Daily Flap List" $flapemail
+fi
+if [ -s ubr18.txt ] ; then
+cat ubr18.txt | mail -s "$ubr8name Daily Flap List" $flapemail
+fi
+if [ -s ubr19.txt ] ; then
+cat ubr19.txt | mail -s "$ubr9name Daily Flap List" $flapemail
+fi
+if [ -s ubr20.txt ] ; then
+cat ubr20.txt | mail -s "$ubr10name Daily Flap List" $flapemail
+fi
+if [ -s ubr21.txt ] ; then
+cat ubr21.txt | mail -s "$ubr1name Daily Flap List" $flapemail
+fi
+if [ -s ubr22.txt ] ; then
+cat ubr22.txt | mail -s "$ubr2name Daily Flap List" $flapemail
+fi
+if [ -s ubr23.txt ] ; then
+cat ubr23.txt | mail -s "$ubr3name Daily Flap List" $flapemail
+fi
+if [ -s ubr24.txt ] ; then
+cat ubr24.txt | mail -s "$ubr4name Daily Flap List" $flapemail
+fi
+if [ -s ubr25.txt ] ; then
+cat ubr25.txt | mail -s "$ubr5name Daily Flap List" $flapemail
+fi
+if [ -s ubr26.txt ] ; then
+cat ubr26.txt | mail -s "$ubr6name Daily Flap List" $flapemail
+fi
+if [ -s ubr27.txt ] ; then
+cat ubr27.txt | mail -s "$ubr7name Daily Flap List" $flapemail
+fi
+if [ -s ubr28.txt ] ; then
+cat ubr28.txt | mail -s "$ubr8name Daily Flap List" $flapemail
+fi
+if [ -s ubr29.txt ] ; then
+cat ubr29.txt | mail -s "$ubr9name Daily Flap List" $flapemail
+fi
+if [ -s ubr30.txt ] ; then
+cat ubr30.txt | mail -s "$ubr10name Daily Flap List" $flapemail
+fi
+if [ -s ubr31.txt ] ; then
+cat ubr31.txt | mail -s "$ubr1name Daily Flap List" $flapemail
+fi
+if [ -s ubr32.txt ] ; then
+cat ubr32.txt | mail -s "$ubr2name Daily Flap List" $flapemail
+fi
+if [ -s ubr33.txt ] ; then
+cat ubr33.txt | mail -s "$ubr3name Daily Flap List" $flapemail
+fi
+if [ -s ubr34.txt ] ; then
+cat ubr34.txt | mail -s "$ubr4name Daily Flap List" $flapemail
+fi
+if [ -s ubr35.txt ] ; then
+cat ubr35.txt | mail -s "$ubr5name Daily Flap List" $flapemail
+fi
+if [ -s ubr36.txt ] ; then
+cat ubr36.txt | mail -s "$ubr6name Daily Flap List" $flapemail
+fi
+if [ -s ubr37.txt ] ; then
+cat ubr37.txt | mail -s "$ubr7name Daily Flap List" $flapemail
+fi
+if [ -s ubr38.txt ] ; then
+cat ubr38.txt | mail -s "$ubr8name Daily Flap List" $flapemail
+fi
+if [ -s ubr39.txt ] ; then
+cat ubr39.txt | mail -s "$ubr9name Daily Flap List" $flapemail
+fi
+if [ -s ubr40.txt ] ; then
+cat ubr40.txt | mail -s "$ubr10name Daily Flap List" $flapemail
+fi
+if [ -s ubr41.txt ] ; then
+cat ubr41.txt | mail -s "$ubr1name Daily Flap List" $flapemail
+fi
+if [ -s ubr42.txt ] ; then
+cat ubr42.txt | mail -s "$ubr2name Daily Flap List" $flapemail
+fi
+if [ -s ubr43.txt ] ; then
+cat ubr43.txt | mail -s "$ubr3name Daily Flap List" $flapemail
+fi
+if [ -s ubr44.txt ] ; then
+cat ubr44.txt | mail -s "$ubr4name Daily Flap List" $flapemail
+fi
+if [ -s ubr45.txt ] ; then
+cat ubr45.txt | mail -s "$ubr5name Daily Flap List" $flapemail
+fi
+if [ -s ubr46.txt ] ; then
+cat ubr46.txt | mail -s "$ubr6name Daily Flap List" $flapemail
+fi
+if [ -s ubr47.txt ] ; then
+cat ubr47.txt | mail -s "$ubr7name Daily Flap List" $flapemail
+fi
+if [ -s ubr48.txt ] ; then
+cat ubr48.txt | mail -s "$ubr8name Daily Flap List" $flapemail
+fi
+if [ -s ubr49.txt ] ; then
+cat ubr49.txt | mail -s "$ubr9name Daily Flap List" $flapemail
+fi
+if [ -s ubr50.txt ] ; then
+cat ubr50.txt | mail -s "$ubr10name Daily Flap List" $flapemail
+fi

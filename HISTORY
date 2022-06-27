@@ -1,0 +1,48 @@
+05.01.02  /  v0.0.3
+* fixed bug w/long ip address searches in the ip search and
+  historical ip search scripts
+* fixed minor bug w/signal indicator code
+* added support for up 50 uBRs
+* eliminated errors attributed to unused/unconfigured ubrs
+* removed several non-standard command line switches (java binary)
+* added support for user/pass as well as plain password logins
+* updated documentation (read this if you've had any installation issues)
+* added word .doc and .html versions of the new (end)users guide
+
+04.16.02  /  v0.0.2a
+* fixed typo in the flaplist script
+* scrapped and rewrote if/then statements to determine signal
+  graphic to use
+* Created self serve cgi that uses the HTTP_REFERER cgi
+  envioriment variable and does an ipsearch using that
+  address and then passes the modem the ip is behind to
+  a customer oriented simple language pass/fail modem
+  search. If the ip isn't found behind any monitored
+  modems it will display an error w/the ip address.
+  This doesn't work behind cable/dsl routers, yet.
+  Also created transparent pass/fail graphics for this.
+* Went over all the scripts and cleaned up my code.
+  (changes to cmsearch, modemw, cmt, ipsearch, hips, etc)
+* Updated documentation
+
+
+04.13.02  /  v0.0.2
+* made all the scripts to use a centralized config file
+* bug fixes in the ipsearch and historical ip search scripts
+* added invalid ip scan script
+* major changes to the modemsearch script
+  - 1000+ images are no longer required for the signal graphs
+    or interface status indicators
+  - the java command line has been modified a little bit to
+    utilize a little more memory (speeds things up)
+  - other misc changes, commenting, etc..
+* changed flap script to eliminate cron errors from references
+  to extra un-used uBR's in the script
+* cut support down to 10 uBR's until v0.0.3
+* updated documentation and installation instructions
+* scrapped the old installation script and rewrote it
+* added cron installation script for redhat systems
+
+
+02.13.02  /  v0.0.1
+* Inital release

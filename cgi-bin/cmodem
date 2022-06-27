@@ -1,0 +1,369 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# create subs
+ubr1() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr1ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr2() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr2ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr3() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr3ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr4() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr4ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr5() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr5ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr6() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr6ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr7() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr7ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr8() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr8ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr9() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr9ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr10() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr10ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr11() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr11ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr12() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr12ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr13() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr13ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr14() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr14ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr15() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr15ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr16() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr16ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr17() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr17ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr18() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr18ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr19() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr19ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr20() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr20ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr21() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr21ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr22() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr22ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr23() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr23ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr24() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr24ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr25() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr25ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr26() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr26ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr27() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr27ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr28() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr28ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr29() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr29ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr30() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr30ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr31() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr31ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr32() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr32ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr33() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr33ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr34() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr34ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr35() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr35ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr36() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr36ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr37() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr37ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr38() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr38ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr39() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr39ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr40() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr40ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr41() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr41ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr42() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr42ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr43() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr43ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr44() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr44ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr45() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr45ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr46() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr46ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr47() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr47ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr48() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr48ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr49() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr49ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+ubr50() {
+(echo "$ubruser";echo "$ubrpass";echo "clear cable modem $MACID reset";echo "exit") | nc -n $ubr50ip 23 | grep -v exit | grep -v ÿ | grep -v User | grep -v Pass | grep -v "+"
+}
+
+# determine what ubr was passed, make the variable $MACID equal the mac
+# that was passed and go to the appropriate sub
+case "$1" in
+  1)
+    MACID=$2
+    ubr1
+    ;;
+  2)
+    MACID=$2
+    ubr2
+    ;;
+  3)
+    MACID=$2
+    ubr3
+    ;;
+  4)
+    MACID=$2
+    ubr4
+    ;;
+  5)
+    MACID=$2
+    ubr5
+    ;;
+  6)
+    MACID=$2
+    ubr6
+    ;;
+  7)
+    MACID=$2
+    ubr7
+    ;;
+  8)
+    MACID=$2
+    ubr8
+    ;;
+  9)
+    MACID=$2
+    ubr9
+    ;;
+ 10)
+    MACID=$2
+    ubr10
+    ;;
+ 11)
+    MACID=$2
+    ubr11
+    ;;
+ 12)
+    MACID=$2
+    ubr12
+    ;;
+ 13)
+    MACID=$2
+    ubr13
+    ;;
+ 14)
+    MACID=$2
+    ubr14
+    ;;
+ 15)
+    MACID=$2
+    ubr15
+    ;;
+ 16)
+    MACID=$2
+    ubr16
+    ;;
+ 17)
+    MACID=$2
+    ubr17
+    ;;
+ 18)
+    MACID=$2
+    ubr18
+    ;;
+ 19)
+    MACID=$2
+    ubr19
+    ;;
+ 20)
+    MACID=$2
+    ubr20
+    ;;
+ 21)
+    MACID=$2
+    ubr21
+    ;;
+ 22)
+    MACID=$2
+    ubr22
+    ;;
+ 23)
+    MACID=$2
+    ubr23
+    ;;
+ 24)
+    MACID=$2
+    ubr24
+    ;;
+ 25)
+    MACID=$2
+    ubr25
+    ;;
+ 26)
+    MACID=$2
+    ubr26
+    ;;
+ 27)
+    MACID=$2
+    ubr27
+    ;;
+ 28)
+    MACID=$2
+    ubr28
+    ;;
+ 29)
+    MACID=$2
+    ubr29
+    ;;
+ 30)
+    MACID=$2
+    ubr30
+    ;;
+ 31)
+    MACID=$2
+    ubr31
+    ;;
+ 32)
+    MACID=$2
+    ubr32
+    ;;
+ 33)
+    MACID=$2
+    ubr33
+    ;;
+ 34)
+    MACID=$2
+    ubr34
+    ;;
+ 35)
+    MACID=$2
+    ubr35
+    ;;
+ 36)
+    MACID=$2
+    ubr36
+    ;;
+ 37)
+    MACID=$2
+    ubr37
+    ;;
+ 38)
+    MACID=$2
+    ubr38
+    ;;
+ 39)
+    MACID=$2
+    ubr39
+    ;;
+ 40)
+    MACID=$2
+    ubr40
+    ;;
+ 41)
+    MACID=$2
+    ubr41
+    ;;
+ 42)
+    MACID=$2
+    ubr42
+    ;;
+ 43)
+    MACID=$2
+    ubr43
+    ;;
+ 44)
+    MACID=$2
+    ubr44
+    ;;
+ 45)
+    MACID=$2
+    ubr45
+    ;;
+ 46)
+    MACID=$2
+    ubr46
+    ;;
+ 47)
+    MACID=$2
+    ubr47
+    ;;
+ 48)
+    MACID=$2
+    ubr48
+    ;;
+ 49)
+    MACID=$2
+    ubr49
+    ;;
+ 50)
+    MACID=$2
+    ubr50
+    ;;
+esac

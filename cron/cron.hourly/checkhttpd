@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+#
+# This is a small script that checks to see if httpd is running and if it's not
+# it stops and restarts the service and generates a cron style email
+# reccomended to run hourly or every 1-15 minutes if possible
+#
+
+if [ -f /etc/init.d/httpd ] ; then
+# check the process list for the httpd service
+proclist=$(ps ax | grep "httpd" | grep -v "grep" | grep -v checkhttpd)
+
+# if httpd is running then exit
+if [ "$proclist" != "" ]; then
+exit 1
+# otherwise stop and start the service and output the time it was restarted
+# to stdout so crond will generate an email
+else
+/etc/init.d/httpd stop > /dev/null
+/etc/init.d/httpd start > /dev/null
+echo "httpd died!"
+echo -n "Restarted: " ; date
+fi
+else
+exit 1
+fi

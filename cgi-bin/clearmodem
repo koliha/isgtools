@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# determine macid and ubr number from $QUERY_STRING
+macid=$(echo $QUERY_STRING | tr A-Z a-z | tr - . | cut -c 7-20 | tr -d [:space:])
+ubr=$(echo $QUERY_STRING | tr A-Z a-z | tr - . | cut -c 26-27)
+date=$(date)
+# logfile entry
+echo "[$date] $REMOTE_ADDR - $ubr/$macid" >> cmodem.log
+# html output
+echo "Content-type: text/html"
+echo ""
+echo "<html>"
+echo "<head>"
+echo "<meta http-equiv=Refresh content=30;URL=$HTTP_REFERER >"
+echo "</head>"
+echo "<body bgcolor="#ffffff">"
+echo "<P><FONT face=Arial size=2><EM>Reset Modem: $macid</EM></FONT></P>"
+echo "<table border=1 cellpadding=0 cellspacing=0 bordercolor=#111111 width=100% id=AutoNumber1 collapse>"
+echo "  <tr>"
+echo "   <td width=16% bgcolor=#006699>"
+echo "    <p align=center><b><font color=#ffffff face=Arial size=1>Results</font></b></p></td>"
+echo "  </tr>"
+echo "  <tr>"
+echo "   <td><p align=left><font face=Arial size=2><STRONG>"
+# run the cmodem command
+./cmodem $ubr $macid
+echo "</STRONG>"
+echo "</font></p></td>"
+echo "</tr>"
+echo "</table>"
+echo "</body>"
+echo "</html>"

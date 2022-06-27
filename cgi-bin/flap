@@ -1,0 +1,165 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# cat all of the archived flaplists
+
+if [ -s $flappath/results/ubr1.txt ] ; then
+cat $flappath/results/ubr1.txt
+fi
+if [ -s $flappath/results/ubr2.txt ] ; then
+cat $flappath/results/ubr2.txt
+fi
+if [ -s $flappath/results/ubr3.txt ] ; then
+cat $flappath/results/ubr3.txt
+fi
+if [ -s $flappath/results/ubr4.txt ] ; then
+cat $flappath/results/ubr4.txt
+fi
+if [ -s $flappath/results/ubr5.txt ] ; then
+cat $flappath/results/ubr5.txt
+fi
+if [ -s $flappath/results/ubr6.txt ] ; then
+cat $flappath/results/ubr6.txt
+fi
+if [ -s $flappath/results/ubr7.txt ] ; then
+cat $flappath/results/ubr7.txt
+fi
+if [ -s $flappath/results/ubr8.txt ] ; then
+cat $flappath/results/ubr8.txt
+fi
+if [ -s $flappath/results/ubr9.txt ] ; then
+cat $flappath/results/ubr9.txt
+fi
+if [ -s $flappath/results/ubr10.txt ] ; then
+cat $flappath/results/ubr10.txt
+fi
+if [ -s $flappath/results/ubr11.txt ] ; then
+cat $flappath/results/ubr11.txt
+fi
+if [ -s $flappath/results/ubr12.txt ] ; then
+cat $flappath/results/ubr12.txt
+fi
+if [ -s $flappath/results/ubr13.txt ] ; then
+cat $flappath/results/ubr13.txt
+fi
+if [ -s $flappath/results/ubr14.txt ] ; then
+cat $flappath/results/ubr14.txt
+fi
+if [ -s $flappath/results/ubr15.txt ] ; then
+cat $flappath/results/ubr15.txt
+fi
+if [ -s $flappath/results/ubr16.txt ] ; then
+cat $flappath/results/ubr16.txt
+fi
+if [ -s $flappath/results/ubr17.txt ] ; then
+cat $flappath/results/ubr17.txt
+fi
+if [ -s $flappath/results/ubr18.txt ] ; then
+cat $flappath/results/ubr18.txt
+fi
+if [ -s $flappath/results/ubr19.txt ] ; then
+cat $flappath/results/ubr19.txt
+fi
+if [ -s $flappath/results/ubr20.txt ] ; then
+cat $flappath/results/ubr20.txt
+fi
+if [ -s $flappath/results/ubr21.txt ] ; then
+cat $flappath/results/ubr21.txt
+fi
+if [ -s $flappath/results/ubr22.txt ] ; then
+cat $flappath/results/ubr22.txt
+fi
+if [ -s $flappath/results/ubr23.txt ] ; then
+cat $flappath/results/ubr23.txt
+fi
+if [ -s $flappath/results/ubr24.txt ] ; then
+cat $flappath/results/ubr24.txt
+fi
+if [ -s $flappath/results/ubr25.txt ] ; then
+cat $flappath/results/ubr25.txt
+fi
+if [ -s $flappath/results/ubr26.txt ] ; then
+cat $flappath/results/ubr26.txt
+fi
+if [ -s $flappath/results/ubr27.txt ] ; then
+cat $flappath/results/ubr27.txt
+fi
+if [ -s $flappath/results/ubr28.txt ] ; then
+cat $flappath/results/ubr28.txt
+fi
+if [ -s $flappath/results/ubr29.txt ] ; then
+cat $flappath/results/ubr29.txt
+fi
+if [ -s $flappath/results/ubr30.txt ] ; then
+cat $flappath/results/ubr30.txt
+fi
+if [ -s $flappath/results/ubr31.txt ] ; then
+cat $flappath/results/ubr31.txt
+fi
+if [ -s $flappath/results/ubr32.txt ] ; then
+cat $flappath/results/ubr32.txt
+fi
+if [ -s $flappath/results/ubr33.txt ] ; then
+cat $flappath/results/ubr33.txt
+fi
+if [ -s $flappath/results/ubr34.txt ] ; then
+cat $flappath/results/ubr34.txt
+fi
+if [ -s $flappath/results/ubr35.txt ] ; then
+cat $flappath/results/ubr35.txt
+fi
+if [ -s $flappath/results/ubr36.txt ] ; then
+cat $flappath/results/ubr36.txt
+fi
+if [ -s $flappath/results/ubr37.txt ] ; then
+cat $flappath/results/ubr37.txt
+fi
+if [ -s $flappath/results/ubr38.txt ] ; then
+cat $flappath/results/ubr38.txt
+fi
+if [ -s $flappath/results/ubr39.txt ] ; then
+cat $flappath/results/ubr39.txt
+fi
+if [ -s $flappath/results/ubr40.txt ] ; then
+cat $flappath/results/ubr40.txt
+fi
+if [ -s $flappath/results/ubr41.txt ] ; then
+cat $flappath/results/ubr41.txt
+fi
+if [ -s $flappath/results/ubr42.txt ] ; then
+cat $flappath/results/ubr42.txt
+fi
+if [ -s $flappath/results/ubr43.txt ] ; then
+cat $flappath/results/ubr43.txt
+fi
+if [ -s $flappath/results/ubr44.txt ] ; then
+cat $flappath/results/ubr44.txt
+fi
+if [ -s $flappath/results/ubr45.txt ] ; then
+cat $flappath/results/ubr45.txt
+fi
+if [ -s $flappath/results/ubr46.txt ] ; then
+cat $flappath/results/ubr46.txt
+fi
+if [ -s $flappath/results/ubr47.txt ] ; then
+cat $flappath/results/ubr47.txt
+fi
+if [ -s $flappath/results/ubr48.txt ] ; then
+cat $flappath/results/ubr48.txt
+fi
+if [ -s $flappath/results/ubr49.txt ] ; then
+cat $flappath/results/ubr49.txt
+fi
+if [ -s $flappath/results/ubr50.txt ] ; then
+cat $flappath/results/ubr50.txt
+fi

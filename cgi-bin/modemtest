@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+echo "Content-type: text/html"
+echo ""
+ip=$REMOTE_ADDR
+# if no ip was entered then display an error page and exit
+if [ "$ip" = "" ]; then
+echo "It doesn't seem that you are passing host information to"
+echo "the webserver. This is very odd. Please contact a system"
+echo "administrator as soon as possible."
+exit 1
+fi
+# if the modem was found determine the modem's mac address by running
+# ipsearch and extracting the macid from it's output
+macid=$(./ips $ip | grep modem | cut -c 62-75)
+# if the mac address isn't blank then launch the modemsearch script and pull
+# the modem diagnostics (including all cpe's) from the modem
+if [ "$macid" != "" ]
+then
+./cmt $macid
+else
+# if the macid is blank then display an error page and exit
+echo "<B>Your IP address was not found behind a monitored router!</B><BR><BR>"
+echo "Possible causes include:<BR>"
+echo "* You are accessing this page from behind a hardware firewall, gateway, or router<BR>"
+echo "* The IP address you are currently issued has not been issued to you for more than an hour<BR>"
+echo "* You are accessing this page at the top of the hour:<BR>"
+echo "<i>&nbsp &nbsp At the top of every hour the ip address database is updated.<BR>"
+echo "&nbsp &nbsp Your ip address may not have populated the current database yet</i><BR>"
+echo "* You are accessing this page from outside of this systems monitored modem network<BR>"
+echo "* You are accessing this page thru a proxy server or anonymizing service<BR><BR><BR>"
+echo "IP Detected: $ip"
+exit 1
+fi

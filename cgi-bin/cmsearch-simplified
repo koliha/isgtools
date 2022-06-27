@@ -1,0 +1,1004 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# create logfile entry, $1 is the search string, $2 is the user
+date=$(date)
+echo "[$date] $2 - $1" >> cmsearch.log 
+
+# search stored ubr data for the string
+cat ubrdata/ubr1.poll | grep "$1" > ubr1.$1
+cat ubrdata/ubr2.poll | grep "$1" > ubr2.$1
+cat ubrdata/ubr3.poll | grep "$1" > ubr3.$1
+cat ubrdata/ubr4.poll | grep "$1" > ubr4.$1
+cat ubrdata/ubr5.poll | grep "$1" > ubr5.$1
+cat ubrdata/ubr6.poll | grep "$1" > ubr6.$1
+cat ubrdata/ubr7.poll | grep "$1" > ubr7.$1
+cat ubrdata/ubr8.poll | grep "$1" > ubr8.$1
+cat ubrdata/ubr9.poll | grep "$1" > ubr9.$1
+cat ubrdata/ubr10.poll | grep "$1" > ubr10.$1
+cat ubrdata/ubr11.poll | grep "$1" > ubr11.$1
+cat ubrdata/ubr12.poll | grep "$1" > ubr12.$1
+cat ubrdata/ubr13.poll | grep "$1" > ubr13.$1
+cat ubrdata/ubr14.poll | grep "$1" > ubr14.$1
+cat ubrdata/ubr15.poll | grep "$1" > ubr15.$1
+cat ubrdata/ubr16.poll | grep "$1" > ubr16.$1
+cat ubrdata/ubr17.poll | grep "$1" > ubr17.$1
+cat ubrdata/ubr18.poll | grep "$1" > ubr18.$1
+cat ubrdata/ubr19.poll | grep "$1" > ubr19.$1
+cat ubrdata/ubr20.poll | grep "$1" > ubr20.$1
+cat ubrdata/ubr21.poll | grep "$1" > ubr21.$1
+cat ubrdata/ubr22.poll | grep "$1" > ubr22.$1
+cat ubrdata/ubr23.poll | grep "$1" > ubr23.$1
+cat ubrdata/ubr24.poll | grep "$1" > ubr24.$1
+cat ubrdata/ubr25.poll | grep "$1" > ubr25.$1
+cat ubrdata/ubr26.poll | grep "$1" > ubr26.$1
+cat ubrdata/ubr27.poll | grep "$1" > ubr27.$1
+cat ubrdata/ubr28.poll | grep "$1" > ubr28.$1
+cat ubrdata/ubr29.poll | grep "$1" > ubr29.$1
+cat ubrdata/ubr30.poll | grep "$1" > ubr30.$1
+cat ubrdata/ubr31.poll | grep "$1" > ubr31.$1
+cat ubrdata/ubr32.poll | grep "$1" > ubr32.$1
+cat ubrdata/ubr33.poll | grep "$1" > ubr33.$1
+cat ubrdata/ubr34.poll | grep "$1" > ubr34.$1
+cat ubrdata/ubr35.poll | grep "$1" > ubr35.$1
+cat ubrdata/ubr36.poll | grep "$1" > ubr36.$1
+cat ubrdata/ubr37.poll | grep "$1" > ubr37.$1
+cat ubrdata/ubr38.poll | grep "$1" > ubr38.$1
+cat ubrdata/ubr39.poll | grep "$1" > ubr39.$1
+cat ubrdata/ubr40.poll | grep "$1" > ubr40.$1
+cat ubrdata/ubr41.poll | grep "$1" > ubr41.$1
+cat ubrdata/ubr42.poll | grep "$1" > ubr42.$1
+cat ubrdata/ubr43.poll | grep "$1" > ubr43.$1
+cat ubrdata/ubr44.poll | grep "$1" > ubr44.$1
+cat ubrdata/ubr45.poll | grep "$1" > ubr45.$1
+cat ubrdata/ubr46.poll | grep "$1" > ubr46.$1
+cat ubrdata/ubr47.poll | grep "$1" > ubr47.$1
+cat ubrdata/ubr48.poll | grep "$1" > ubr48.$1
+cat ubrdata/ubr49.poll | grep "$1" > ubr49.$1
+cat ubrdata/ubr50.poll | grep "$1" > ubr50.$1
+if [ "$ubr1ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr1.poll | grep "$1" > ubr1.$1
+ubr1=$(cat ubr1.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr2ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr2.poll | grep "$1" > ubr2.$1
+ubr2=$(cat ubr2.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr3ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr3.poll | grep "$1" > ubr3.$1
+ubr3=$(cat ubr3.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr4ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr4.poll | grep "$1" > ubr4.$1
+ubr4=$(cat ubr4.$1 | grep able | tr -d [:space:] )
+fi
+if [ "$ubr5ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr5.poll | grep "$1" > ubr5.$1
+ubr5=$(cat ubr5.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr6ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr6.poll | grep "$1" > ubr6.$1
+ubr6=$(cat ubr6.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr7ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr7.poll | grep "$1" > ubr7.$1
+ubr7=$(cat ubr7.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr8ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr8.poll | grep "$1" > ubr8.$1
+ubr8=$(cat ubr8.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr9ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr9.poll | grep "$1" > ubr9.$1
+ubr9=$(cat ubr9.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr10ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr10.poll | grep "$1" > ubr10.$1
+ubr10=$(cat ubr10.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr11ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr11.poll | grep "$1" > ubr11.$1
+ubr11=$(cat ubr11.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr12ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr12.poll | grep "$1" > ubr12.$1
+ubr12=$(cat ubr12.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr13ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr13.poll | grep "$1" > ubr13.$1
+ubr13=$(cat ubr13.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr14ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr14.poll | grep "$1" > ubr14.$1
+ubr14=$(cat ubr14.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr15ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr15.poll | grep "$1" > ubr15.$1
+ubr15=$(cat ubr15.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr16ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr16.poll | grep "$1" > ubr16.$1
+ubr16=$(cat ubr16.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr17ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr17.poll | grep "$1" > ubr17.$1
+ubr17=$(cat ubr17.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr18ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr18.poll | grep "$1" > ubr18.$1
+ubr18=$(cat ubr18.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr19ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr19.poll | grep "$1" > ubr19.$1
+ubr19=$(cat ubr19.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr20ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr20.poll | grep "$1" > ubr20.$1
+ubr20=$(cat ubr20.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr21ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr21.poll | grep "$1" > ubr21.$1
+ubr21=$(cat ubr21.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr22ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr22.poll | grep "$1" > ubr22.$1
+ubr22=$(cat ubr22.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr23ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr23.poll | grep "$1" > ubr23.$1
+ubr23=$(cat ubr23.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr24ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr24.poll | grep "$1" > ubr24.$1
+ubr24=$(cat ubr24.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr25ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr25.poll | grep "$1" > ubr25.$1
+ubr25=$(cat ubr25.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr26ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr26.poll | grep "$1" > ubr26.$1
+ubr26=$(cat ubr26.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr27ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr27.poll | grep "$1" > ubr27.$1
+ubr27=$(cat ubr27.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr28ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr28.poll | grep "$1" > ubr28.$1
+ubr28=$(cat ubr28.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr29ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr29.poll | grep "$1" > ubr29.$1
+ubr29=$(cat ubr29.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr30ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr30.poll | grep "$1" > ubr30.$1
+ubr30=$(cat ubr30.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr31ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr31.poll | grep "$1" > ubr31.$1
+ubr31=$(cat ubr31.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr32ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr32.poll | grep "$1" > ubr32.$1
+ubr32=$(cat ubr32.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr33ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr33.poll | grep "$1" > ubr33.$1
+ubr33=$(cat ubr33.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr34ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr34.poll | grep "$1" > ubr34.$1
+ubr34=$(cat ubr34.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr35ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr35.poll | grep "$1" > ubr35.$1
+ubr35=$(cat ubr35.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr36ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr36.poll | grep "$1" > ubr36.$1
+ubr36=$(cat ubr36.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr37ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr37.poll | grep "$1" > ubr37.$1
+ubr37=$(cat ubr37.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr38ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr38.poll | grep "$1" > ubr38.$1
+ubr38=$(cat ubr38.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr39ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr39.poll | grep "$1" > ubr39.$1
+ubr39=$(cat ubr39.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr40ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr40.poll | grep "$1" > ubr40.$1
+ubr40=$(cat ubr40.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr41ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr41.poll | grep "$1" > ubr41.$1
+ubr41=$(cat ubr41.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr42ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr42.poll | grep "$1" > ubr42.$1
+ubr42=$(cat ubr42.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr43ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr43.poll | grep "$1" > ubr43.$1
+ubr43=$(cat ubr43.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr44ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr44.poll | grep "$1" > ubr44.$1
+ubr44=$(cat ubr44.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr45ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr45.poll | grep "$1" > ubr45.$1
+ubr45=$(cat ubr45.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr46ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr46.poll | grep "$1" > ubr46.$1
+ubr46=$(cat ubr46.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr47ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr47.poll | grep "$1" > ubr47.$1
+ubr47=$(cat ubr47.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr48ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr48.poll | grep "$1" > ubr48.$1
+ubr48=$(cat ubr48.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr49ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr49.poll | grep "$1" > ubr49.$1
+ubr49=$(cat ubr49.$1 | grep able | tr -d [:space:])
+fi
+if [ "$ubr50ip" != "0.0.0.0" ] ; then
+cat ubrdata/ubr50.poll | grep "$1" > ubr50.$1
+ubr50=$(cat ubr50.$1 | grep able | tr -d [:space:])
+fi
+
+cat *.$1 | grep able | head -n 1 > modem.$1
+intid=$(cat modem.$1 | cut -c 1-8)
+tsid=$(cat modem.$1 | cut -c 12-17)
+export tsid intid
+
+# combine all variables
+nomodem=$(echo $ubr1 $ubr2 $ubr3 $ubr4 $ubr5 $ubr6 $ubr7 $ubr8 $ubr9 $ubr10 $ubr11 $ubr12 $ubr13 $ubr14 $ubr15 $ubr16 $ubr17 $ubr18 $ubr19 $ubr20 $ubr21 $ubr22 $ubr23 $ubr24 $ubr25 $ubr26 $ubr27 $ubr28 $ubr29 $ubr30 $ubr31 $ubr32 $ubr33 $ubr34 $ubr35 $ubr36 $ubr37 $ubr38 $ubr39 $ubr40 $ubr41 $ubr42 $ubr43 $ubr44 $ubr45 $ubr46 $ubr47 $ubr48 $ubr49 $ubr50)
+
+# check to see if $nomodem is blank (modem not found)
+# if it's blank then output an error page
+if [ "$nomodem" = "" ]
+then
+rm -rf ubr*.$1 modem.$1
+echo ""
+echo "<B>Modem not found.</B><BR><BR>"
+echo "Possible causes include:<BR><BR>"
+echo "* Modem has not been acquired in the last 12-24 hours<BR>"
+echo "* Wrong MAC Address<BR>"
+echo "* Invalid MAC Address Entered<BR><BR>"
+echo "MAC Addresses may be entered with 4-12 characters seperated with periods or dashes as follows:<BR>"
+echo "4 Character Search - 02d4<BR>"
+echo "5 Character Search - 0.02d4<BR>"
+echo "6 Character Search - b0.02d4<BR>"
+echo "8 Character Search - 40b0.02d4<BR>"
+echo "&nbsp&nbsp&nbsp&nbsp Full MAC Search - 0020.40b0.02d4<BR><BR><BR>"
+echo "Please click back and try again<BR>"
+exit 1
+fi
+
+
+# call the ubr-poll script to pull live cpe information
+if [ "$ubr1" != "" ]
+then
+./ubr-poll 1 $1
+fi
+if [ "$ubr2" != "" ]
+then
+./ubr-poll 2 $1
+fi
+if [ "$ubr3" != "" ]
+then
+./ubr-poll 3 $1
+fi
+if [ "$ubr4" != "" ]
+then
+./ubr-poll 4 $1
+fi
+if [ "$ubr5" != "" ]
+then
+./ubr-poll 5 $1
+fi
+if [ "$ubr6" != "" ]
+then
+./ubr-poll 6 $1
+fi
+if [ "$ubr7" != "" ]
+then
+./ubr-poll 7 $1
+fi
+if [ "$ubr8" != "" ]
+then
+./ubr-poll 8 $1
+fi
+if [ "$ubr9" != "" ]
+then
+./ubr-poll 9 $1
+fi
+if [ "$ubr10" != "" ]
+then
+./ubr-poll 10 $1
+fi
+if [ "$ubr11" != "" ]
+then
+./ubr-poll 11 $1
+fi
+if [ "$ubr12" != "" ]
+then
+./ubr-poll 12 $1
+fi
+if [ "$ubr13" != "" ]
+then
+./ubr-poll 13 $1
+fi
+if [ "$ubr14" != "" ]
+then
+./ubr-poll 14 $1
+fi
+if [ "$ubr15" != "" ]
+then
+./ubr-poll 15 $1
+fi
+if [ "$ubr16" != "" ]
+then
+./ubr-poll 16 $1
+fi
+if [ "$ubr17" != "" ]
+then
+./ubr-poll 17 $1
+fi
+if [ "$ubr18" != "" ]
+then
+./ubr-poll 18 $1
+fi
+if [ "$ubr19" != "" ]
+then
+./ubr-poll 19 $1
+fi
+if [ "$ubr20" != "" ]
+then
+./ubr-poll 20 $1
+fi
+if [ "$ubr21" != "" ]
+then
+./ubr-poll 21 $1
+fi
+if [ "$ubr22" != "" ]
+then
+./ubr-poll 22 $1
+fi
+if [ "$ubr23" != "" ]
+then
+./ubr-poll 23 $1
+fi
+if [ "$ubr24" != "" ]
+then
+./ubr-poll 24 $1
+fi
+if [ "$ubr25" != "" ]
+then
+./ubr-poll 25 $1
+fi
+if [ "$ubr26" != "" ]
+then
+./ubr-poll 26 $1
+fi
+if [ "$ubr27" != "" ]
+then
+./ubr-poll 27 $1
+fi
+if [ "$ubr28" != "" ]
+then
+./ubr-poll 28 $1
+fi
+if [ "$ubr29" != "" ]
+then
+./ubr-poll 29 $1
+fi
+if [ "$ubr30" != "" ]
+then
+./ubr-poll 30 $1
+fi
+if [ "$ubr31" != "" ]
+then
+./ubr-poll 31 $1
+fi
+if [ "$ubr32" != "" ]
+then
+./ubr-poll 32 $1
+fi
+if [ "$ubr33" != "" ]
+then
+./ubr-poll 33 $1
+fi
+if [ "$ubr34" != "" ]
+then
+./ubr-poll 34 $1
+fi
+if [ "$ubr35" != "" ]
+then
+./ubr-poll 35 $1
+fi
+if [ "$ubr36" != "" ]
+then
+./ubr-poll 36 $1
+fi
+if [ "$ubr37" != "" ]
+then
+./ubr-poll 37 $1
+fi
+if [ "$ubr38" != "" ]
+then
+./ubr-poll 38 $1
+fi
+if [ "$ubr39" != "" ]
+then
+./ubr-poll 39 $1
+fi
+if [ "$ubr40" != "" ]
+then
+./ubr-poll 40 $1
+fi
+if [ "$ubr41" != "" ]
+then
+./ubr-poll 41 $1
+fi
+if [ "$ubr42" != "" ]
+then
+./ubr-poll 42 $1
+fi
+if [ "$ubr43" != "" ]
+then
+./ubr-poll 43 $1
+fi
+if [ "$ubr44" != "" ]
+then
+./ubr-poll 44 $1
+fi
+if [ "$ubr45" != "" ]
+then
+./ubr-poll 45 $1
+fi
+if [ "$ubr46" != "" ]
+then
+./ubr-poll 46 $1
+fi
+if [ "$ubr47" != "" ]
+then
+./ubr-poll 47 $1
+fi
+if [ "$ubr48" != "" ]
+then
+./ubr-poll 48 $1
+fi
+if [ "$ubr49" != "" ]
+then
+./ubr-poll 49 $1
+fi
+if [ "$ubr50" != "" ]
+then
+./ubr-poll 50 $1
+fi
+
+# snmp poll the modem and pull the information from that and the ubr-poll script
+# into variables
+#
+macid=$( cat modem.$1 | cut -c 67-80 | tr -d [:space:] )
+dmacid=$( echo $macid | tr -d . )
+modemip=$( cat modem.$1 | cut -c 51-66 | tr -d [:space:] )
+$javapath/java -jar $docsdiagpath/docsdiag.jar -vv -cmip $modemip -cmmac $dmacid  > snmpmodem.$1
+
+lastupdated=$(cat ubrdata/lastupdated)
+flastupdated=$(cat $flappath/results/lastupdated)
+uptime=$(cat snmpmodem.$1 | grep System | cut -c 40-65)
+downstreamtxt=$(cat snmpmodem.$1 | grep Downstream | grep power | cut -c 40-50 | tr -d [:space:])
+downstream=$(echo $downstreamtxt | tr -d d | tr -d B | tr -d m | tr -d V | tr -d [:space:])
+upstreamtxt=$(cat snmpmodem.$1 | grep Upstream | grep power | cut -c 40-50 | tr -d [:space:])
+upstream=$(echo $upstreamtxt | tr -d d | tr -d B | tr -d m | tr -d V | tr -d [:space:])
+snrtxt=$(cat snmpmodem.$1 | grep Noise | cut -c 40-50 | tr -d [:space:])
+snr=$(echo $snrtxt | tr -d d | tr -d B | tr -d [:space:])
+microref=$(cat snmpmodem.$1 | grep microref | cut -c 40-45)
+infoline=$(cat snmpmodem.$1 | head -n 6 | tail -n 1)
+sid=$(echo $tsid | tr -d [:space:])
+interface=$(cat modem.$1 | cut -c 1-12 | tr -d [:space:])
+onlinestate=$(cat modem.$1 | cut -c 18-28 | tr -d [:space:])
+timingoffset=$(cat modem.$1 | cut -c 29-35 | tr -d [:space:])
+recpwr=$(cat modem.$1 | head -n 1 | cut -c 36-42 | tr -d [:space:])
+cpe=$(cat modem.$1 | head -n 1 | cut -c 47-50 | tr -d [:space:])
+ubrnum=$(cat ubrnum.$1)
+ubrclear=$(cat ubrnum.clear.$1)
+cat ubr-info.$1 | grep -w "$sid" | grep host > ubr-info.$1
+ 
+#
+# modem infomation html creation
+#
+echo ""
+echo "<HTML>"
+echo "<HEAD>"
+echo "<META HTTP-EQUIV="Content-Type" CONTENT="text/html" </head>"
+echo "<META HTTP-EQUIV="Refresh" content="300">"
+echo "</HEAD>"
+echo "<BODY BGCOLOR="#ffffff">"
+echo "<P><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">"
+echo "<TR>"
+echo "<TD WIDTH=75%><FONT SIZE=-2 FACE=Arial>Modem information last updated from uBR: $lastupdated</FONT></TD>"
+echo "<TD WIDTH="25%"><P ALIGN=RIGHT><FONT SIZE="-2" FACE="Arial"><A HREF="/cmtxt/cmsearch-txt.$1"><IMG SRC=/text.gif BORDER="0" ALIGN="texttop"></A></FONT></TD>"
+echo "</TR>"
+echo "</TABLE></P>"
+echo "<P><TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0" WIDTH="100%" bordercolor="#111111">"
+echo "<TR><TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">uBR</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$ubrnum</FONT></B></TD>"
+echo "<P><TD ROWSPAN="17" VALIGN="TOP"><CENTER><FONT SIZE="-2" FACE="Arial">"
+
+# checks to see if the modem has a valid ip
+if [ "$modemip" != "0.0.0.0" ] ; then
+ping -s 100 -c 5 -i .25 $modemip | grep -v bytes | grep -v "PING" > pingmr.$1
+else
+# if it hasn't yet acquired and gotten an ip then we will make a blank modem
+# results file so we don't get any nasty errors in the httpd error_log
+modemip="offline"
+echo "" > pingmr.$1
+fi
+
+cp pingmr.$1 pingmr.txt.$1
+cat pingmr.$1 | grep loss > pingrx.$1
+cat pingmr.$1 | grep mdev > pingtime.$1
+cat pingrx.$1 > pingmr.$1
+echo "<BR>" >> pingmr.$1
+cat pingtime.$1 >> pingmr.$1
+rm -rf pingtime.$1 pingrx.$1
+echo $infoline
+echo "<BR><BR>Modem has been acquired $uptime </FONT></P>"
+echo "<P><BR><A HREF=/cgi-bin/clearmodem?macid=$macid&ubr=$ubrclear><IMG SRC=/reset.gif BORDER=0></A>"
+echo "<FONT SIZE="-2" FACE="Arial"><B><A HREF=/cgi-bin/modemwatch?macid=$macid&cip=$modemip><IMG SRC=/watch.gif BORDER="0"></A></B></FONT>"
+echo "<FONT SIZE="-2" FACE="Arial"><B><A HREF=/cgi-bin/modemlog?macid=$dmacid&cip=$modemip><IMG SRC=/logfile.gif BORDER="0"></A></B></FONT></CENTER></P>"
+echo "<BR><BR><FONT SIZE="-1" FACE="Arial"><B>Modem Ping Test:<BR>"
+echo "</FONT></B><FONT SIZE="-2" FACE="Arial">"
+cat pingmr.$1
+echo "</FONT></P>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699">"
+echo "<P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Interface</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$interface</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Online State</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$onlinestate</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Timing Offset</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$timingoffset</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Rec. Power</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$recpwr</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">MAC Address</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$macid</FONT></B></TD>"
+echo "</TR>"
+
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Upstream</FONT></B></TD>"
+# check to make sure that we pulled some power levels from the modem
+# skip determining proper graphic for signal if nothing was pulled
+if [ "$upstream" = "" ] ; then
+upstreamgif="unknown.gif"
+downstreamgif="unknown.gif"
+snrgif="unknown.gif"
+else
+#
+# determine power levels and make the gif variable equal the filename 
+# to reference in the html output
+# 
+# note: we remove all the decimals, that's why the values are in the 100's
+#
+
+# upstream
+upstreamtest=$( echo $upstream | tr -d . )
+upstreamgif="green.gif"
+
+if [ $upstreamtest -le 200 ] ; then
+if [ $upstreamtest -le 200 ] ; then
+if [ $upstreamtest -le 100 ] ; then
+upstreamgif="red.gif"
+fi
+else
+upstreamgif="yellow.gif"
+fi
+else
+if [ $upstreamtest -ge 400 ] ; then
+if [ $upstreamtest -ge 400 ] ; then
+if [ $upstreamtest -ge 500 ] ; then
+upstreamgif="red.gif"
+else
+upstreamgif="yellow.gif"
+fi
+fi
+fi
+fi
+
+# downstream
+downstreamtest=$( echo $downstream | tr -d . )
+downstreamgif="green.gif"
+
+if [ $downstreamtest -le -100 ] ; then
+if [ $downstreamtest -le -100 ] ; then
+if [ $downstreamtest -le -150 ] ; then
+downstreamgif="red.gif"
+else
+downstreamgif="yellow.gif"
+fi
+fi
+else
+if [ $downstreamtest -ge 100 ] ; then
+if [ $downstreamtest -ge 100 ] ; then
+if [ $downstreamtest -ge 150 ] ; then
+downstreamgif="red.gif"
+else
+downstreamgif="yellow.gif"
+fi
+fi
+fi
+fi
+
+# snr
+snrtest=$( echo $snr | tr -d . )
+snrgif="green.gif"
+
+if [ $snrtest -le 200 ] ; then
+if [ $snrtest -le 200 ] ; then
+if [ $snrtest -le 100 ] ; then
+snrgif="red.gif"
+else
+snrgif="yellow.gif"
+fi
+fi
+fi
+
+# close the original if statement
+fi
+
+
+#
+# signal level html creation
+#
+
+echo "<TD><CENTER><IMG SRC=/$upstreamgif ALIGN="BOTTOM"></CENTER></TD>"
+echo "<TD>"
+echo "<P ALIGN=RIGHT><B><FONT COLOR="#000000" SIZE="-1" FACE="Arial">$upstreamtxt</FONT></B></P></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Downstream</FONT></B></TD>"
+echo "<TD><CENTER><IMG SRC=/$downstreamgif ALIGN="BOTTOM"></CENTER></TD>"
+echo "<TD>"
+echo "<P ALIGN=RIGHT><STRONG><FONT SIZE="-1" FACE="Arial">$downstreamtxt</FONT></STRONG></P></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699">"
+echo "<P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">SNR</FONT></B></TD></P>"
+echo "<TD><B><FONT SIZE="-1" FACE="Arial"><CENTER><IMG SRC=/$snrgif ALIGN="BOTTOM"></FONT></B></CENTER></TD>"
+echo "<TD>"
+echo "<P ALIGN=RIGHT><B><FONT SIZE="-1" FACE="Arial">$snrtxt</FONT></B></P></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Microreflections</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$microref</FONT></B></TD>"
+echo "</TR>"
+echo "</TABLE></P>"
+echo "<P>&nbsp;</P>"
+
+#
+# host information html creation
+#
+
+# this dumps the first and last cpe's found into seperate files and
+# the variables $host1 and $host2
+head -n 1 ubr-info.$1 > host1.$1
+tail -n 1 ubr-info.$1 > host2.$1
+host1=$(cat host1.$1)
+host2=$(cat host2.$1)
+
+# if they are both the same then there's only one host behind the modem
+if [ "$host1" = "$host2" ]; then
+host2="false"
+fi
+
+# create variables for the first host
+hostsid=$(cat host1.$1 | cut -c 1-6 | tr -d [:space:])
+hostpriv=$(cat host1.$1 | cut -c 7-17 | tr -d [:space:])
+host1ip=$(cat host1.$1 | cut -c 38-51 | tr -d [:space:])
+host1mac=$(cat host1.$1 | cut -c 62-77 | tr -d [:space:])
+host1type=$(cat host1.$1 | cut -c 18-27 | tr -d [:space:])
+host1state=$(cat host1.$1 | cut -c 28-37 | tr -d [:space:])
+host1method=$(cat host1.$1 | cut -c 52-61 | tr -d [:space:])
+
+# if the second is valid then create the variables for the second host
+if [ "$host2" != "false" ]
+then
+host2ip=$(cat host2.$1 | cut -c 38-51 | tr -d [:space:])
+host2mac=$(cat host2.$1 | cut -c 62-77 | tr -d [:space:])
+host2type=$(cat host2.$1 | cut -c 18-27 | tr -d [:space:])
+host2state=$(cat host2.$1 | cut -c 28-37 | tr -d [:space:])
+host2method=$(cat host2.$1 | cut -c 52-61 | tr -d [:space:])
+fi
+
+# this calls snmpget to get the interface status info from the modem
+# the first snmp value is interface 1 on the modem (usually ether)
+# the second snmp value is interface 5 on the modem (usually usb)
+# sb3100 modems will show both of these as up (even though it only has an ether port)
+$snmpgetpath/snmpget $modemip public .1.3.6.1.2.1.2.2.1.8.1 .1.3.6.1.2.1.2.2.1.8.5 > ifinfo.$1
+
+# variable creation for ether/usb status
+ethstatus=$( cat ifinfo.$1 | grep "ifOperStatus.1" | cut -c 45-51 | tr -d [:space:])
+usbstatus=$( cat ifinfo.$1 | grep "ifOperStatus.5" | cut -c 45-51 | tr -d [:space:])
+
+# if the hosts are valid, ping them to test connectivity
+if [ "$host1ip" != "" ]
+then
+( ping -s 100 -c 5 -i .25 $host1ip | grep -v bytes | grep -v "PING" ) > pinghr1.$1
+fi
+if [ "$host2ip" != "" ]
+then
+( ping -s 100 -c 5 -i .25 $host2ip | grep -v bytes | grep -v "PING" ) > pinghr2.$1
+fi
+cat pinghr1.$1 > pinghr.txt.$1
+
+echo "<P><B><FONT FACE="Arial">Host Information:</FONT></B>"
+echo "<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"  bordercolor="#111111" WIDTH="100%">"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699">"
+echo "<P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Ethernet Status</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+echo "<IMG SRC=/$ethstatus.gif ALIGN="BOTTOM"></FONT></B></TD>"
+echo "<TD ROWSPAN="9" VALIGN="TOP"><B><FONT SIZE="-1" FACE="Arial">"
+# if the second host is blank then don't output anything about it
+if [ "$host2ip" != "" ]
+then
+(echo "Second Host Ping Test:" ; cat pinghr2.$1) >> pinghr.txt.$1
+fi
+cat pinghr1.$1 | grep loss > pingrx1.$1
+cat pinghr1.$1 | grep mdev > pingtime1.$1
+if [ "$host2ip" != "" ]
+then
+cat pinghr2.$1 | grep loss > pingrx2.$1
+cat pinghr2.$1 | grep mdev > pingtime2.$1
+fi
+cat pingrx1.$1 > pinghr.$1
+echo "<BR>" >> pinghr.$1
+cat pingtime1.$1 >> pinghr.$1
+if [ "$host2ip" != "" ]
+then
+echo "<BR><BR></FONT><FONT SIZE="-1" FACE="Arial">" >> pinghr.$1
+echo "<B>2nd Host Ping Test:</B><BR></FONT><FONT SIZE="-2" FACE="Arial">" >> pinghr.$1
+cat pingrx2.$1 >> pinghr.$1
+echo "<BR>" >> pinghr.$1
+cat pingtime2.$1 >> pinghr.$1
+fi
+rm -rf pingtime1.$1 pingtime2.$1 pingrx1.$1 pingrx2.$1
+echo "Host Ping Test:<BR>"
+echo "</FONT></B><FONT SIZE="-2" FACE="Arial">"
+cat pinghr.$1
+echo "</FONT></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699">"
+echo "<P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">USB Status</FONT></B></TD>"
+echo "<TD COLSPAN="2"><IMG SRC=/$usbstatus.gif ALIGN="BOTTOM">"
+echo "</TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Method IP Obtained</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$host1method"
+if [ "$host2ip" != "" ]
+then
+echo "<BR>$host2method"
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">MAC Address</FONT></B></TD>"
+echo "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">$host1mac"
+echo "<A HREF=/cgi-bin/clearhost?macid=$host1mac&ubr=$ubrclear><IMG SRC=/clear.gif BORDER=0 ALIGN="texttop"></A>"
+if [ "$host2ip" != "" ]
+then
+echo "<BR>$host2mac"
+echo "<A HREF=/cgi-bin/clearhost?macid=$host2mac&ubr=$ubrclear><IMG SRC=/clear.gif BORDER=0 ALIGN="texttop"></A>"
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "</TABLE></P>"
+echo "<P>&nbsp;</P>"
+
+#
+# flap information html creation
+#
+
+# check the archived flaplist and the live flaplist (pulled live from the uBR)
+# for the modem and dump the results to a couple of files
+./flap | grep $macid | grep -v ! > flapresults.$1
+./lflap $ubrclear | grep $macid > lflapresults.$1
+# put the live flap poll into a variable to make sure there are real results later
+lflap=$(cat lflapresults.$1)
+
+echo "<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">"
+echo "<TR>"
+echo "<B><FONT FACE="Arial">Flap Information:<BR>"
+echo "<TD WIDTH="50%"><FONT SIZE="-2">$flastupdated</FONT></TD>"
+echo "<TD WIDTH="50%"><P ALIGN=RIGHT><FONT SIZE="-2" FACE="Arial">"
+echo "<A HREF=/cgi-bin/clearflap?macid=$macid&ubr=$ubrclear><IMG SRC=/clear.gif BORDER=0 ALIGN="middle"></A>"
+echo "<BR><A HREF=/cgi-bin/liveflap?ubr=$ubrclear>$ubrnum Live Flap Stats</A></FONT></TD>"
+echo "</TR>"
+echo "</TABLE>"
+echo "<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0" bordercolor="#111111" WIDTH="100%">"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">MAC Address</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 1-16
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 1-16
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Upstream</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 17-29
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 17-29
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Insertions</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 30-35
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 30-35
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Hits</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 36-41
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 36-41
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Misses</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 42-47
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 42-47
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">CRC Errors</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 48-51
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 48-51
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Pwr Adjustments</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 52-59
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 52-59
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Flaps</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 60-65
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 60-65
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "<TR>"
+echo "<TD BGCOLOR="#006699" WIDTH="25%"><P ALIGN=RIGHT><B><FONT COLOR="#ffffff" SIZE="-2" FACE="Arial">Error Times</FONT></B></TD>"
+echo -n "<TD COLSPAN="2"><B><FONT SIZE="-1" FACE="Arial">"
+cat flapresults.$1 | cut -c 66-80
+if [ "$lflap" != "" ]
+then
+echo "<BR>"
+cat lflapresults.$1 | cut -c 66-80
+fi
+echo "</FONT></B></TD>"
+echo "</TR>"
+echo "</TABLE>"
+echo "</BODY>"
+echo "</HTML>"
+cat lflapresults.$1 >> flapresults.$1
+
+#
+# text results creation
+#
+echo "Modem information last updated: $lastupdated" > cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "Modem is on $ubrnum" >> cmsearch-txt.$1
+echo $infoline >> cmsearch-txt.$1
+echo "============================= Modem Information =============================" >> cmsearch-txt.$1
+echo "Interface   Prim Online     Timing Rec    QoS CPE IP address      MAC address" >> cmsearch-txt.$1
+echo "            Sid  State      Offset Power" >> cmsearch-txt.$1
+echo "-----------------------------------------------------------------------------" >> cmsearch-txt.$1
+cat modem.$1 >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "Modem has been acquired $uptime " >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "  Upstream: $upstreamtxt " >> cmsearch-txt.$1
+echo "Downstream: $downstreamtxt " >> cmsearch-txt.$1
+echo "       SNR: $snrtxt " >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "Microreflections: $microref" >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "Modem Ping Test:" >> cmsearch-txt.$1
+cat pingmr.txt.$1 | grep -v statistics >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "=========================== Host Information ===========================" >> cmsearch-txt.$1
+echo "SID   Priv bits  Type      State     IP address    method    MAC address" >> cmsearch-txt.$1
+echo "------------------------------------------------------------------------" >> cmsearch-txt.$1
+echo "                                                             $host1mac" >> cmsearch-txt.$1
+echo "                                                             $host2mac" >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "Host Ping Test:" >> cmsearch-txt.$1
+cat pinghr.txt.$1 | grep -v statistics >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "Ethernet Status: $ethstatus " >> cmsearch-txt.$1
+echo "     USB Status: $usbstatus " >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "========================== Flap Information =========================" >> cmsearch-txt.$1
+echo "$flastupdated" >> cmsearch-txt.$1
+echo "" >> cmsearch-txt.$1
+echo "MAC Address     Upstream     Ins   Hit   Miss  CRC   P-Adj Flap  Time" >> cmsearch-txt.$1
+echo "---------------------------------------------------------------------" >> cmsearch-txt.$1
+cat flapresults.$1 >> cmsearch-txt.$1
+# move the text based results to the proper directory
+mv cmsearch-txt.$1 $htmlroot/cmtxt/
+# cleanup
+rm -rf modem.$1 ubr*.$1 flapresults.$1 pinghr1.$1 pinghr2.$1 pingmr.$1 pinghr.$1 host-mac-a.$1 pinghr.txt.$1 pingmr.txt.$1 snmpmodem.$1 ifinfo.$1 host1.$1 host2.$1 lflapresults.$1

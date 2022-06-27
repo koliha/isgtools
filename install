@@ -1,0 +1,157 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+
+# check to make sure the config file has been edited
+goodconfig=$(cat isgtools.conf | grep "DELETE THIS LINE")
+if [ "$goodconfig" != "" ] ; then
+echo "Please edit the isgtools.conf file and customize it for your"
+echo "system before running this script"
+echo ""
+echo "(or remove the line that says 'DELETE THIS LINE')"
+exit 1
+fi
+
+# temporarily make the config file executable and read it
+cp isgtools.conf isgtools.sh
+chmod +x isgtools.sh
+. isgtools.sh
+rm -rf isgtools.sh
+echo "Please read the README file for installation instructions."
+echo ""
+echo "Some cron scripts need to be installed after this script is ran"
+echo "and there are some dependancies to be aware of"
+echo ""
+echo -n "Press [ENTER] to continue, [CTRL]-[C] to abort" ; read tmp
+# display license agreement
+clear
+more LICENSE
+echo ""
+echo -n "Type 'YES' in all caps if you agree: " ; read license
+# if it doesn't equal YES in all caps then exit
+if [ "$license" != "YES" ] ; then
+echo ""
+echo "Exiting.."
+exit 1
+fi
+# start actual installation script
+clear
+echo "ISG Tools v0.0.3 Script Installer"
+echo "---------------------------------"
+echo ""
+echo "This will install the scripts in the proper"
+echo "locations, and set some permissions...."
+echo ""
+echo ""
+echo "[ Your Company & Contact Info ]"
+echo ""
+echo -n "Company/Organization: " ; read company
+if [ "$company" = "" ]; then
+echo ""
+echo "Company/Organization name is required."
+exit 1
+fi
+echo -n "        Contact Name: " ; read contactname
+if [ "$contactname" = "" ]; then
+echo ""
+echo "Contact name is required."
+exit 1
+fi
+echo -n "      Contact e-mail: " ; read contactemail
+if [ "$contactemail" = "" ]; then
+echo ""
+echo "Contact email is required."
+exit 1
+fi
+echo ""
+echo ""
+echo "Please review the list below and confirm the"
+echo "installation tasks"
+echo ""
+echo "NOTE: If you choose to skip installing the files you" 
+echo "will need to copy down the installation tasks and complete" 
+echo "them manually or re-run this configuration script."
+echo ""
+echo "1) Copy scripts located in cgi-bin/ to $cgipath"
+echo "2) Create directory $cgipath/ubrdata"
+echo "3) Change the ownership of:"
+echo "   $cgipath, $flappath, $iplogpath, $htmlroot"
+echo "   to $httpduser so the scripts can create files"
+echo "4) Install the flaplist to $flappath"
+echo "5) Install the IP logging tool to $iplogpath"
+echo "6) Create directory $htmlroot/cmtxt"
+echo "7) Copy required icons and graphics from images/* to $htmlroot/"
+echo "8) Install docsdiag.jar to $docsdiagpath/"
+echo "9) Copy example html forms to $htmlroot/isgtools/"
+echo ""
+echo -n "Type YES in all caps to perform selected tasks: " ; read tasks
+
+# check if YES was typed in
+if [ "$tasks" != "YES" ] ; then
+# exit if something else was entered
+echo ""
+echo "File installation aborted. Please note the above"
+echo "installation tasks or re-run the installation script"
+echo ""
+exit 1
+fi
+
+# install
+echo ""
+echo "Installing..."
+cp -R cgi-bin/* $cgipath/
+chown -R $httpduser:$httpduser $cgipath
+mkdir $flappath
+cp -R flap/* $flappath/
+chown -R $httpduser:$httpduser $flappath
+mkdir $iplogpath
+cp -R iplogger/* $iplogpath/
+chown -R $httpduser:$httpduser $iplogpath
+mkdir $htmlroot/cmtxt
+mkdir $htmlroot/isgtools
+cp icons/* $htmlroot/
+cp icons/.gif $htmlroot/.gif
+cp examples/html/* $htmlroot/isgtools/
+chown -R $httpduser:$httpduser $htmlroot
+cp bin/docsdiag.jar $docsdiagpath/
+cp isgtools.conf /etc/isgtools.sh
+chmod +x /etc/isgtools.sh
+echo ""
+echo "File installation complete."
+echo "ISG Tools 0.0.3" > mailtmp
+echo "" >> mailtmp
+echo "Contact Info: $company" >> mailtmp
+echo "              $contactname" >> mailtmp
+echo "              $contactemail" >> mailtmp
+cat mailtmp | mail -s "ISG Tools 0.0.3 Registration" rkoliha@charter.net
+rm -rf mailtmp
+echo "Support registration submitted."
+echo ""
+echo "There are several post installation setup requirements"
+echo "Please view the README file for more information"
+
+if [ -d /etc/cron.hourly ] ; then
+echo ""
+echo ""
+echo "Possible RedHat system or other system supporting cron"
+echo "detected. Would you like to run the installation script"
+echo -n "to install the required cron files/entries [y/n]?"
+read installcron
+if [ "$installcron" = "n" ] ; then
+echo "If you want to run the cron installation script later:"
+echo "cd cron/"
+echo "./install.redhat"
+echo ""
+exit 1
+else
+cd cron
+./install.redhat
+fi
+fi

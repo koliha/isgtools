@@ -1,0 +1,147 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+
+# define subs
+cronerror() {
+echo "You don't seem to have the precreated cron directories"
+echo "that this script requires to run properly."
+echo ""
+echo "A manual installation of the cron scripts will be required"
+echo "please view the README file for further instructions"
+exit 1
+}
+
+clear
+echo "This will automatically install all nessicary cron"
+echo "scripts required for ISG Tools on RedHat and possibly"
+echo "other systems with the following cron directories:"
+echo ""
+echo "/etc/cron.hourly"
+echo "/etc/cron.daily"
+echo "/etc/cron.weekly"
+echo ""
+echo ""
+echo "Press [ENTER] to continue or [CTRL]-[C] to abort"
+read tmp
+
+if [ -d /etc/cron.hourly ] ; then
+clear
+echo -n "Do you want to create & setup /etc/cron.minute [y/n]?"
+read createminute
+echo -n "Do you want to create & setup /etc/cron.1159 [y/n]?"
+read create2359
+echo ""
+echo -n "Do you want to append the crontab entries to /etc/crontab [y/n]?"
+read createtab
+echo ""
+echo ""
+echo "Installing scripts and creating needed directories.."
+echo ""
+if [ "$createminute" != n ] ; then
+mkdir /etc/cron.minute
+cp cron.minute/* /etc/cron.minute/
+fi
+if [ "$create2359" != "n" ] ; then
+mkdir /etc/cron.2359
+cp cron.2359/* /etc/cron.2359/
+fi
+mv cron.daily/invalid-scan ./
+cp cron.daily/* /etc/cron.daily/
+mv invalid-scan cron.daily/
+cp cron.hourly/* /etc/cron.hourly/
+cp cron.weekly/* /etc/cron.weekly/
+if [ "$createtab" != "n" ] ; then
+echo "Appending crontab entries to /etc/crontab"
+echo "59 23 * * * root run-parts /etc/cron.2359" >> /etc/crontab
+echo "0 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "1 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "2 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "3 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "4 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "5 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "6 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "7 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "8 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "9 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "10 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "11 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "12 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "13 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "14 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "15 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "16 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "17 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "18 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "19 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "20 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "21 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "22 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "23 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "24 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "25 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "26 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "27 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "28 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "29 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "30 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "31 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "32 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "33 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "34 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "35 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "36 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "37 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "38 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "39 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "40 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "41 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "42 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "43 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "44 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "45 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "46 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "47 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "48 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "49 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "50 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "51 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "52 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "53 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "54 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "55 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "56 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "57 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "58 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "59 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+echo "60 * * * * root run-parts /etc/cron.minute" >> /etc/crontab
+fi
+echo ""
+echo ""
+echo ""
+echo "NOTE: The file cron/cron.daily/invalid-scan which scans for"
+echo "      invalid ip addresses nighly must be manually edited"
+echo "      and placed in /etc/cron.daily."
+echo ""
+echo "      The file cron/weather-image grabs a small icon with"
+echo "      just the temperature from a weather underground server"
+echo "      and saves it locally for use on internet/intranet pages."
+echo "      This must be manually edited and installed in the proper"
+echo "      cron directory (depending on how often you want it to update)."
+echo ""
+echo "Both of the above files are commented heavily with instructions on"
+echo "how to get them going."
+echo ""
+echo ""
+echo "Installation complete."
+else
+cronerror
+exit 1
+fi

@@ -1,0 +1,2597 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# determine month passed
+if [ "$1" = "01" ] ;then
+month=Jan
+fi
+if [ "$1" = "02" ] ;then
+month=Feb
+fi
+if [ "$1" = "03" ] ;then
+month=Mar
+fi
+if [ "$1" = "04" ] ;then
+month=Apr
+fi
+if [ "$1" = "05" ] ;then
+month=May
+fi
+if [ "$1" = "06" ] ;then
+month=Jun
+fi
+if [ "$1" = "07" ] ;then
+month=Jul
+fi
+if [ "$1" = "08" ] ;then
+month=Aug
+fi
+if [ "$1" = "09" ] ;then
+month=Sep
+fi
+if [ "$1" = "10" ] ;then
+month=Oct
+fi
+if [ "$1" = "11" ] ;then
+month=Nov
+fi
+if [ "$1" = "12" ] ;then
+month=Dec
+fi
+
+# variable creation
+today=$(date +%m%d)
+day="$2"
+hour="$3"
+ip="$4"
+date="$month.$day-$hour"
+# go to the log store directory
+cd $iplogpath/logs
+# uncompress the appropriate log file and kill any output
+tar -zxvf $iplogpath/logs/archive/$month/$day.tar.gz > /dev/null
+# determine sid to search for
+sid=$(cat $iplogpath/logs/$date*.txt | cut -c 1-51 | grep $ip | head -n 1 | cut -c 1-4)
+# search each ubr/interface for the ip and dump it into a variable
+if [ "$ubr1ip" != "0.0.0.0" ] ; then
+ubr1c3=$( cat $iplogpath/logs/$date.ubr1.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr1c4=$( cat $iplogpath/logs/$date.ubr1.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr1c5=$( cat $iplogpath/logs/$date.ubr1.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr1c6=$( cat $iplogpath/logs/$date.ubr1.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr2ip" != "0.0.0.0" ] ; then
+ubr2c3=$( cat $iplogpath/logs/$date.ubr2.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr2c4=$( cat $iplogpath/logs/$date.ubr2.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr2c5=$( cat $iplogpath/logs/$date.ubr2.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr2c6=$( cat $iplogpath/logs/$date.ubr2.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr3ip" != "0.0.0.0" ] ; then
+ubr3c3=$( cat $iplogpath/logs/$date.ubr3.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr3c4=$( cat $iplogpath/logs/$date.ubr3.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr3c5=$( cat $iplogpath/logs/$date.ubr3.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr3c6=$( cat $iplogpath/logs/$date.ubr3.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr4ip" != "0.0.0.0" ] ; then
+ubr4c3=$( cat $iplogpath/logs/$date.ubr4.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr4c4=$( cat $iplogpath/logs/$date.ubr4.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr4c5=$( cat $iplogpath/logs/$date.ubr4.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr4c6=$( cat $iplogpath/logs/$date.ubr4.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr5ip" != "0.0.0.0" ] ; then
+ubr5c3=$( cat $iplogpath/logs/$date.ubr5.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr5c4=$( cat $iplogpath/logs/$date.ubr5.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr5c5=$( cat $iplogpath/logs/$date.ubr5.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr5c6=$( cat $iplogpath/logs/$date.ubr5.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr6ip" != "0.0.0.0" ] ; then
+ubr6c3=$( cat $iplogpath/logs/$date.ubr6.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr6c4=$( cat $iplogpath/logs/$date.ubr6.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr6c5=$( cat $iplogpath/logs/$date.ubr6.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr6c6=$( cat $iplogpath/logs/$date.ubr6.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr7ip" != "0.0.0.0" ] ; then
+ubr7c3=$( cat $iplogpath/logs/$date.ubr7.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr7c4=$( cat $iplogpath/logs/$date.ubr7.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr7c5=$( cat $iplogpath/logs/$date.ubr7.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr7c6=$( cat $iplogpath/logs/$date.ubr7.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr8ip" != "0.0.0.0" ] ; then
+ubr8c3=$( cat $iplogpath/logs/$date.ubr8.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr8c4=$( cat $iplogpath/logs/$date.ubr8.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr8c5=$( cat $iplogpath/logs/$date.ubr8.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr8c6=$( cat $iplogpath/logs/$date.ubr8.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr9ip" != "0.0.0.0" ] ; then
+ubr9c3=$( cat $iplogpath/logs/$date.ubr9.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr9c4=$( cat $iplogpath/logs/$date.ubr9.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr9c5=$( cat $iplogpath/logs/$date.ubr9.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr9c6=$( cat $iplogpath/logs/$date.ubr9.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr10ip" != "0.0.0.0" ] ; then
+ubr10c3=$( cat $iplogpath/logs/$date.ubr10.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr10c4=$( cat $iplogpath/logs/$date.ubr10.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr10c5=$( cat $iplogpath/logs/$date.ubr10.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr10c6=$( cat $iplogpath/logs/$date.ubr10.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr11ip" != "0.0.0.0" ] ; then
+ubr11c3=$( cat $iplogpath/logs/$date.ubr11.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr11c4=$( cat $iplogpath/logs/$date.ubr11.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr11c5=$( cat $iplogpath/logs/$date.ubr11.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr11c6=$( cat $iplogpath/logs/$date.ubr11.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr12ip" != "0.0.0.0" ] ; then
+ubr12c3=$( cat $iplogpath/logs/$date.ubr12.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr12c4=$( cat $iplogpath/logs/$date.ubr12.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr12c5=$( cat $iplogpath/logs/$date.ubr12.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr12c6=$( cat $iplogpath/logs/$date.ubr12.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr13ip" != "0.0.0.0" ] ; then
+ubr13c3=$( cat $iplogpath/logs/$date.ubr13.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr13c4=$( cat $iplogpath/logs/$date.ubr13.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr13c5=$( cat $iplogpath/logs/$date.ubr13.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr13c6=$( cat $iplogpath/logs/$date.ubr13.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr14ip" != "0.0.0.0" ] ; then
+ubr14c3=$( cat $iplogpath/logs/$date.ubr14.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr14c4=$( cat $iplogpath/logs/$date.ubr14.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr14c5=$( cat $iplogpath/logs/$date.ubr14.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr14c6=$( cat $iplogpath/logs/$date.ubr14.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr15ip" != "0.0.0.0" ] ; then
+ubr15c3=$( cat $iplogpath/logs/$date.ubr15.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr15c4=$( cat $iplogpath/logs/$date.ubr15.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr15c5=$( cat $iplogpath/logs/$date.ubr15.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr15c6=$( cat $iplogpath/logs/$date.ubr15.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr16ip" != "0.0.0.0" ] ; then
+ubr16c3=$( cat $iplogpath/logs/$date.ubr16.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr16c4=$( cat $iplogpath/logs/$date.ubr16.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr16c5=$( cat $iplogpath/logs/$date.ubr16.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr16c6=$( cat $iplogpath/logs/$date.ubr16.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr17ip" != "0.0.0.0" ] ; then
+ubr17c3=$( cat $iplogpath/logs/$date.ubr17.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr17c4=$( cat $iplogpath/logs/$date.ubr17.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr17c5=$( cat $iplogpath/logs/$date.ubr17.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr17c6=$( cat $iplogpath/logs/$date.ubr17.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr18ip" != "0.0.0.0" ] ; then
+ubr18c3=$( cat $iplogpath/logs/$date.ubr18.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr18c4=$( cat $iplogpath/logs/$date.ubr18.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr18c5=$( cat $iplogpath/logs/$date.ubr18.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr18c6=$( cat $iplogpath/logs/$date.ubr18.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr19ip" != "0.0.0.0" ] ; then
+ubr19c3=$( cat $iplogpath/logs/$date.ubr19.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr19c4=$( cat $iplogpath/logs/$date.ubr19.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr19c5=$( cat $iplogpath/logs/$date.ubr19.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr19c6=$( cat $iplogpath/logs/$date.ubr19.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr20ip" != "0.0.0.0" ] ; then
+ubr20c3=$( cat $iplogpath/logs/$date.ubr20.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr20c4=$( cat $iplogpath/logs/$date.ubr20.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr20c5=$( cat $iplogpath/logs/$date.ubr20.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr20c6=$( cat $iplogpath/logs/$date.ubr20.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr21ip" != "0.0.0.0" ] ; then
+ubr21c3=$( cat $iplogpath/logs/$date.ubr21.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr21c4=$( cat $iplogpath/logs/$date.ubr21.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr21c5=$( cat $iplogpath/logs/$date.ubr21.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr21c6=$( cat $iplogpath/logs/$date.ubr21.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr22ip" != "0.0.0.0" ] ; then
+ubr22c3=$( cat $iplogpath/logs/$date.ubr22.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr22c4=$( cat $iplogpath/logs/$date.ubr22.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr22c5=$( cat $iplogpath/logs/$date.ubr22.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr22c6=$( cat $iplogpath/logs/$date.ubr22.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr23ip" != "0.0.0.0" ] ; then
+ubr23c3=$( cat $iplogpath/logs/$date.ubr23.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr23c4=$( cat $iplogpath/logs/$date.ubr23.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr23c5=$( cat $iplogpath/logs/$date.ubr23.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr23c6=$( cat $iplogpath/logs/$date.ubr23.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr24ip" != "0.0.0.0" ] ; then
+ubr24c3=$( cat $iplogpath/logs/$date.ubr24.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr24c4=$( cat $iplogpath/logs/$date.ubr24.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr24c5=$( cat $iplogpath/logs/$date.ubr24.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr24c6=$( cat $iplogpath/logs/$date.ubr24.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr25ip" != "0.0.0.0" ] ; then
+ubr25c3=$( cat $iplogpath/logs/$date.ubr25.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr25c4=$( cat $iplogpath/logs/$date.ubr25.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr25c5=$( cat $iplogpath/logs/$date.ubr25.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr25c6=$( cat $iplogpath/logs/$date.ubr25.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr26ip" != "0.0.0.0" ] ; then
+ubr26c3=$( cat $iplogpath/logs/$date.ubr26.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr26c4=$( cat $iplogpath/logs/$date.ubr26.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr26c5=$( cat $iplogpath/logs/$date.ubr26.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr26c6=$( cat $iplogpath/logs/$date.ubr26.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr27ip" != "0.0.0.0" ] ; then
+ubr27c3=$( cat $iplogpath/logs/$date.ubr27.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr27c4=$( cat $iplogpath/logs/$date.ubr27.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr27c5=$( cat $iplogpath/logs/$date.ubr27.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr27c6=$( cat $iplogpath/logs/$date.ubr27.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr28ip" != "0.0.0.0" ] ; then
+ubr28c3=$( cat $iplogpath/logs/$date.ubr28.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr28c4=$( cat $iplogpath/logs/$date.ubr28.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr28c5=$( cat $iplogpath/logs/$date.ubr28.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr28c6=$( cat $iplogpath/logs/$date.ubr28.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr29ip" != "0.0.0.0" ] ; then
+ubr29c3=$( cat $iplogpath/logs/$date.ubr29.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr29c4=$( cat $iplogpath/logs/$date.ubr29.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr29c5=$( cat $iplogpath/logs/$date.ubr29.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr29c6=$( cat $iplogpath/logs/$date.ubr29.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr30ip" != "0.0.0.0" ] ; then
+ubr30c3=$( cat $iplogpath/logs/$date.ubr30.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr30c4=$( cat $iplogpath/logs/$date.ubr30.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr30c5=$( cat $iplogpath/logs/$date.ubr30.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr30c6=$( cat $iplogpath/logs/$date.ubr30.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr31ip" != "0.0.0.0" ] ; then
+ubr31c3=$( cat $iplogpath/logs/$date.ubr31.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr31c4=$( cat $iplogpath/logs/$date.ubr31.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr31c5=$( cat $iplogpath/logs/$date.ubr31.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr31c6=$( cat $iplogpath/logs/$date.ubr31.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr32ip" != "0.0.0.0" ] ; then
+ubr32c3=$( cat $iplogpath/logs/$date.ubr32.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr32c4=$( cat $iplogpath/logs/$date.ubr32.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr32c5=$( cat $iplogpath/logs/$date.ubr32.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr32c6=$( cat $iplogpath/logs/$date.ubr32.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr33ip" != "0.0.0.0" ] ; then
+ubr33c3=$( cat $iplogpath/logs/$date.ubr33.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr33c4=$( cat $iplogpath/logs/$date.ubr33.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr33c5=$( cat $iplogpath/logs/$date.ubr33.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr33c6=$( cat $iplogpath/logs/$date.ubr33.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr34ip" != "0.0.0.0" ] ; then
+ubr34c3=$( cat $iplogpath/logs/$date.ubr34.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr34c4=$( cat $iplogpath/logs/$date.ubr34.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr34c5=$( cat $iplogpath/logs/$date.ubr34.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr34c6=$( cat $iplogpath/logs/$date.ubr34.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr35ip" != "0.0.0.0" ] ; then
+ubr35c3=$( cat $iplogpath/logs/$date.ubr35.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr35c4=$( cat $iplogpath/logs/$date.ubr35.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr35c5=$( cat $iplogpath/logs/$date.ubr35.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr35c6=$( cat $iplogpath/logs/$date.ubr35.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr36ip" != "0.0.0.0" ] ; then
+ubr36c3=$( cat $iplogpath/logs/$date.ubr36.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr36c4=$( cat $iplogpath/logs/$date.ubr36.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr36c5=$( cat $iplogpath/logs/$date.ubr36.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr36c6=$( cat $iplogpath/logs/$date.ubr36.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr37ip" != "0.0.0.0" ] ; then
+ubr37c3=$( cat $iplogpath/logs/$date.ubr37.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr37c4=$( cat $iplogpath/logs/$date.ubr37.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr37c5=$( cat $iplogpath/logs/$date.ubr37.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr37c6=$( cat $iplogpath/logs/$date.ubr37.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr38ip" != "0.0.0.0" ] ; then
+ubr38c3=$( cat $iplogpath/logs/$date.ubr38.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr38c4=$( cat $iplogpath/logs/$date.ubr38.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr38c5=$( cat $iplogpath/logs/$date.ubr38.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr38c6=$( cat $iplogpath/logs/$date.ubr38.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr39ip" != "0.0.0.0" ] ; then
+ubr39c3=$( cat $iplogpath/logs/$date.ubr39.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr39c4=$( cat $iplogpath/logs/$date.ubr39.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr39c5=$( cat $iplogpath/logs/$date.ubr39.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr39c6=$( cat $iplogpath/logs/$date.ubr39.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr40ip" != "0.0.0.0" ] ; then
+ubr40c3=$( cat $iplogpath/logs/$date.ubr40.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr40c4=$( cat $iplogpath/logs/$date.ubr40.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr40c5=$( cat $iplogpath/logs/$date.ubr40.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr40c6=$( cat $iplogpath/logs/$date.ubr40.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr41ip" != "0.0.0.0" ] ; then
+ubr41c3=$( cat $iplogpath/logs/$date.ubr41.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr41c4=$( cat $iplogpath/logs/$date.ubr41.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr41c5=$( cat $iplogpath/logs/$date.ubr41.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr41c6=$( cat $iplogpath/logs/$date.ubr41.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr42ip" != "0.0.0.0" ] ; then
+ubr42c3=$( cat $iplogpath/logs/$date.ubr42.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr42c4=$( cat $iplogpath/logs/$date.ubr42.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr42c5=$( cat $iplogpath/logs/$date.ubr42.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr42c6=$( cat $iplogpath/logs/$date.ubr42.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr43ip" != "0.0.0.0" ] ; then
+ubr43c3=$( cat $iplogpath/logs/$date.ubr43.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr43c4=$( cat $iplogpath/logs/$date.ubr43.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr43c5=$( cat $iplogpath/logs/$date.ubr43.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr43c6=$( cat $iplogpath/logs/$date.ubr43.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr44ip" != "0.0.0.0" ] ; then
+ubr44c3=$( cat $iplogpath/logs/$date.ubr44.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr44c4=$( cat $iplogpath/logs/$date.ubr44.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr44c5=$( cat $iplogpath/logs/$date.ubr44.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr44c6=$( cat $iplogpath/logs/$date.ubr44.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr45ip" != "0.0.0.0" ] ; then
+ubr45c3=$( cat $iplogpath/logs/$date.ubr45.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr45c4=$( cat $iplogpath/logs/$date.ubr45.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr45c5=$( cat $iplogpath/logs/$date.ubr45.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr45c6=$( cat $iplogpath/logs/$date.ubr45.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr46ip" != "0.0.0.0" ] ; then
+ubr46c3=$( cat $iplogpath/logs/$date.ubr46.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr46c4=$( cat $iplogpath/logs/$date.ubr46.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr46c5=$( cat $iplogpath/logs/$date.ubr46.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr46c6=$( cat $iplogpath/logs/$date.ubr46.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr47ip" != "0.0.0.0" ] ; then
+ubr47c3=$( cat $iplogpath/logs/$date.ubr47.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr47c4=$( cat $iplogpath/logs/$date.ubr47.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr47c5=$( cat $iplogpath/logs/$date.ubr47.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr47c6=$( cat $iplogpath/logs/$date.ubr47.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr48ip" != "0.0.0.0" ] ; then
+ubr48c3=$( cat $iplogpath/logs/$date.ubr48.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr48c4=$( cat $iplogpath/logs/$date.ubr48.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr48c5=$( cat $iplogpath/logs/$date.ubr48.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr48c6=$( cat $iplogpath/logs/$date.ubr48.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr49ip" != "0.0.0.0" ] ; then
+ubr49c3=$( cat $iplogpath/logs/$date.ubr49.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr49c4=$( cat $iplogpath/logs/$date.ubr49.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr49c5=$( cat $iplogpath/logs/$date.ubr49.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr49c6=$( cat $iplogpath/logs/$date.ubr49.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+if [ "$ubr50ip" != "0.0.0.0" ] ; then
+ubr50c3=$( cat $iplogpath/logs/$date.ubr50.c3.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr50c4=$( cat $iplogpath/logs/$date.ubr50.c4.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr50c5=$( cat $iplogpath/logs/$date.ubr50.c5.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+ubr50c6=$( cat $iplogpath/logs/$date.ubr50.c6.txt | cut -c 1-51 | grep $ip | tr -d [:space:] )
+fi
+
+# combine all the variables into a single variable for testing
+nohost=$(echo $ubr1c3 $ubr1c4 $ubr1c5 $ubr1c6 $ubr2c3 $ubr2c4 $ubr2c5 $ubr2c6 $ubr3c3 $ubr3c4 $ubr3c5 $ubr3c6 $ubr4c3 $ubr4c4 $ubr4c5 $ubr4c6 $ubr5c3 $ubr5c4 $ubr5c5 $ubr5c6 $ubr6c3 $ubr6c4 $ubr6c5 $ubr6c6 $ubr7c3 $ubr7c4 $ubr7c5 $ubr7c6 $ubr8c3 $ubr8c4 $ubr8c5 $ubr8c6 $ubr9c3 $ubr9c4 $ubr9c5 $ubr9c6 $ubr10c3 $ubr10c4 $ubr10c5 $ubr10c6)
+
+# test to see if an ip was found
+if [ "$nohost" = "" ]
+then
+# clean up the uncompressed logs only if the date searched for isn't today
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+# output an error page if the ip address wasn't found
+echo ""
+echo "IP not found."
+echo ""
+echo ""
+echo "Possible causes include:"
+echo ""
+echo "* Data is unavalible for the time you specified"
+echo "* IP had not been assigned to any cpe's at time selected"
+echo "* Wrong IP entered"
+echo "* Invalid IP address entered"
+echo ""
+echo "IP addresses may be entered in standard format:"
+echo "ie: 24.158.64.32"
+echo ""
+echo "Please click back and try again"
+exit 1
+fi
+
+# begin output if ip was found
+echo "Timestamp: $month $day at $hour:00"
+echo ""
+
+# check each ubr/interface variable for the non-blank entry
+# once it's found, search the corresponding log file for the SID
+# so both modem and hosts are returned
+#
+# after displaying the output, remove uncompressed logs if the date
+# searched for isn't today
+
+if [ "$ubr1c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr1.c3.txt | grep -w $sid | grep -v .$sid
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr1c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr1.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr1c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr1.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr1c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr1.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr2c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr2.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr2c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr2.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr2c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr2.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr2c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr2.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr3c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr3.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr3c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr3.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr3c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr3.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr3c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr3.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr4c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr4.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr4c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr4.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr4c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr4.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr4c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr4.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr5c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr5.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr5c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr5.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr5c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr5.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr5c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr5.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr6c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr6.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr6c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr6.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr6c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr6.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr6c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr6.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr7c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr7.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr7c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr7.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr7c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr7.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr7c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr7.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr8c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr8.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr8c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr8.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr8c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr8.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr8c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr8.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr9c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr9.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr9c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr9.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr9c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr9.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr9c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr9.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr10c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr10.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr10c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr10.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr10c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr10.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr10c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr10.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr11c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr11.c3.txt | grep -w $sid | grep -v .$sid
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr11c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr11.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr11c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr11.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr11c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr11.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr12c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr12.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr12c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr12.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr12c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr12.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr12c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr12.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr13c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr13.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr13c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr13.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr13c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr13.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr13c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr13.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr14c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr14.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr14c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr14.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr14c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr14.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr14c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr14.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr15c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr15.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr15c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr15.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr15c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr15.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr15c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr15.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr16c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr16.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr16c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr16.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr16c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr16.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr16c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr16.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr17c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr17.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr17c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr17.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr17c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr17.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr17c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr17.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr18c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr18.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr18c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr18.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr18c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr18.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr18c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr18.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr19c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr19.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr19c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr19.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr19c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr19.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr19c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr19.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr20c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr20.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr20c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr20.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr20c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr20.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr20c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr20.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+if [ "$ubr21c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr21.c3.txt | grep -w $sid | grep -v .$sid
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr21c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr21.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr21c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr21.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr21c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr21.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr22c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr22.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr22c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr22.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr22c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr22.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr22c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr22.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr23c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr23.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr23c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr23.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr23c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr23.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr23c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr23.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr24c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr24.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr24c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr24.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr24c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr24.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr24c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr24.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr25c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr25.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr25c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr25.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr25c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr25.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr25c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr25.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr26c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr26.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr26c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr26.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr26c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr26.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr26c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr26.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr27c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr27.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr27c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr27.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr27c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr27.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr27c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr27.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr28c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr28.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr28c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr28.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr28c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr28.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr28c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr28.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr29c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr29.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr29c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr29.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr29c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr29.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr29c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr29.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr30c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr30.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr30c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr30.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr30c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr30.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr30c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr30.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+if [ "$ubr31c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr31.c3.txt | grep -w $sid | grep -v .$sid
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr31c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr31.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr31c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr31.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr31c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr31.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr32c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr32.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr32c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr32.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr32c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr32.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr32c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr32.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr33c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr33.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr33c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr33.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr33c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr33.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr33c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr33.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr34c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr34.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr34c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr34.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr34c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr34.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr34c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr34.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr35c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr35.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr35c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr35.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr35c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr35.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr35c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr35.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr36c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr36.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr36c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr36.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr36c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr36.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr36c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr36.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr37c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr37.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr37c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr37.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr37c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr37.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr37c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr37.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr38c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr38.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr38c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr38.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr38c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr38.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr38c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr38.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr39c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr39.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr39c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr39.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr39c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr39.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr39c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr39.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr40c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr40.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr40c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr40.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr40c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr40.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr40c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr40.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+if [ "$ubr41c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr41.c3.txt | grep -w $sid | grep -v .$sid
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr41c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr41.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr41c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr41.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr41c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr41.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr42c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr42.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr42c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr42.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr42c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr42.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr42c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr42.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr43c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr43.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr43c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr43.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr43c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr43.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr43c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr43.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr44c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr44.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr44c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr44.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr44c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr44.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr44c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr44.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr45c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr45.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr45c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr45.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr45c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr45.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr45c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr45.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr46c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr46.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr46c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr46.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr46c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr46.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr46c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr46.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr47c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr47.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr47c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr47.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr47c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr47.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr47c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr47.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr48c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr48.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr48c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr48.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr48c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr48.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr48c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr48.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr49c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr49.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr49c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr49.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr49c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr49.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr49c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr49.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr50c3" != "" ]
+then
+cat $iplogpath/logs/$date.ubr50.c3.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr50c4" != "" ]
+then
+cat $iplogpath/logs/$date.ubr50.c4.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr50c5" != "" ]
+then
+cat $iplogpath/logs/$date.ubr50.c5.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi
+
+if [ "$ubr50c6" != "" ]
+then
+cat $iplogpath/logs/$date.ubr50.c6.txt | grep -w $sid | grep -v .$sid
+rm -rf ubr*.$ip
+if [ "$today" != "$1$2" ]
+then
+rm -rf $iplogpath/logs/$month.$day*.txt
+fi
+exit 1
+fi

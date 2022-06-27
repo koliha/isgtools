@@ -1,0 +1,1070 @@
+#!/bin/bash
+#
+#
+# This software is Copyright (c) Robert Koliha, 2001-2002.
+# Robert Koliha grants you the rights to distribute and use
+# this software as governed by the terms of the GNU General
+# Public License.
+#
+# http://www.gnu.org/copyleft/gpl.html
+
+# read config file
+. /etc/isgtools.sh
+
+# sub creation
+ubr1() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr1ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr1ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr1ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr1ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr2() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr2ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr2ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr2ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr2ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr3() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr3ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr3ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr3ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr3ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr4() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr4ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr4ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr4ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr4ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr5() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr5ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr5ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr5ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr5ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr6() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr6ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr6ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr6ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr6ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr7() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr7ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr7ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr7ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr7ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr8() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr8ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr8ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr8ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr8ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr9() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr9ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr9ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr9ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr9ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr10() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr10ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr10ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr10ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr10ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr11() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr11ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr11ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr11ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr11ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr12() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr12ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr12ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr12ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr12ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr13() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr13ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr13ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr13ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr13ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr14() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr14ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr14ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr14ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr14ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr15() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr15ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr15ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr15ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr15ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr16() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr16ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr16ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr16ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr16ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr17() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr17ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr17ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr17ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr17ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr18() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr18ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr18ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr18ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr18ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr19() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr19ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr19ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr19ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr19ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr20() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr20ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr20ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr20ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr20ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr21() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr21ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr21ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr21ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr21ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr22() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr22ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr22ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr22ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr22ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr23() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr23ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr23ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr23ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr23ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr24() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr24ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr24ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr24ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr24ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr25() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr25ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr25ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr25ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr25ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr26() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr26ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr26ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr26ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr26ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr27() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr27ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr27ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr27ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr27ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr28() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr28ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr28ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr28ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr28ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr29() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr29ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr29ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr29ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr29ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr30() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr30ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr30ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr30ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr30ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr31() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr31ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr31ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr31ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr31ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr32() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr32ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr32ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr32ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr32ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr33() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr33ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr33ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr33ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr33ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr34() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr34ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr34ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr34ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr34ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr35() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr35ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr35ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr35ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr35ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr36() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr36ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr36ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr36ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr36ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr37() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr37ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr37ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr37ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr37ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr38() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr38ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr38ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr38ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr38ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr39() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr39ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr39ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr39ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr39ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr40() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr40ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr40ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr40ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr40ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr41() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr41ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr41ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr41ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr41ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr42() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr42ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr42ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr42ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr42ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr43() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr43ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr43ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr43ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr43ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr44() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr44ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr44ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr44ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr44ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr45() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr45ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr45ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr45ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr45ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr46() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr46ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr46ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr46ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr46ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr47() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr47ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr47ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr47ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr47ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr48() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr48ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr48ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr48ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr48ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr49() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr49ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr49ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr49ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr49ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+ubr50() {
+date
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh proc | i util";echo "exit") | nc -n $ubr50ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo "--- Version/Uptime Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh ver";echo "exit") | nc -n $ubr50ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- SNR Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cont c3/0 | i SNR";echo "show cont c4/0 | i SNR";echo "show cont c5/0 | i SNR";echo "show cont c6/0 | i SNR";echo "exit") | nc -n $ubr50ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v exit | grep -v "+"
+echo ""
+echo ""
+echo ""
+echo "--- Modem Information ---"
+(echo "$ubruser";echo "$ubrpass";echo "terminal length 0";echo "sh cab mod sum tot";echo "exit") | nc -n $ubr50ip 23 | grep -v ÿ | grep -v User | grep -v Pass | grep -v terminal | grep -v ">" | grep -v "+"
+}
+
+
+
+# determine what ubr number was passed and execute the corresponding sub
+case "$1" in
+  1)
+    ubr1
+    ;;
+  2)
+    ubr2
+    ;;
+  3)
+    ubr3
+    ;;
+  4)
+    ubr4
+    ;;
+  5)
+    ubr5
+    ;;
+  6)
+    ubr6
+    ;;
+  7)
+    ubr7
+    ;;
+  8)
+    ubr8
+    ;;
+  9)
+    ubr9
+    ;;
+ 10)
+    ubr10
+    ;;
+ 11)
+    ubr11
+    ;;
+ 12)
+    ubr12
+    ;;
+ 13)
+    ubr13
+    ;;
+ 14)
+    ubr14
+    ;;
+ 15)
+    ubr15
+    ;;
+ 16)
+    ubr16
+    ;;
+ 17)
+    ubr17
+    ;;
+ 18)
+    ubr18
+    ;;
+ 19)
+    ubr19
+    ;;
+ 20)
+    ubr20
+    ;;
+ 21)
+    ubr21
+    ;;
+ 22)
+    ubr22
+    ;;
+ 23)
+    ubr23
+    ;;
+ 24)
+    ubr24
+    ;;
+ 25)
+    ubr25
+    ;;
+ 26)
+    ubr26
+    ;;
+ 27)
+    ubr27
+    ;;
+ 28)
+    ubr28
+    ;;
+ 29)
+    ubr29
+    ;;
+ 30)
+    ubr30
+    ;;
+ 31)
+    ubr31
+    ;;
+ 32)
+    ubr32
+    ;;
+ 33)
+    ubr33
+    ;;
+ 34)
+    ubr34
+    ;;
+ 35)
+    ubr35
+    ;;
+ 36)
+    ubr36
+    ;;
+ 37)
+    ubr37
+    ;;
+ 38)
+    ubr38
+    ;;
+ 39)
+    ubr39
+    ;;
+ 40)
+    ubr40
+    ;;
+ 41)
+    ubr41
+    ;;
+ 42)
+    ubr42
+    ;;
+ 43)
+    ubr43
+    ;;
+ 44)
+    ubr44
+    ;;
+ 45)
+    ubr45
+    ;;
+ 46)
+    ubr46
+    ;;
+ 47)
+    ubr47
+    ;;
+ 48)
+    ubr48
+    ;;
+ 49)
+    ubr49
+    ;;
+ 50)
+    ubr50
+    ;;
+esac
